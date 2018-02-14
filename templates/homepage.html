@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% include "partial/meta-data.html" %}
+  </head>
+  <body>
+
+    <!-- header -->
+    {% include "partial/header.html" with page_title='Home' %}
+
+    <!-- heading quote -->
+    <section class="head-quote">
+      <div class="bg-shadow ">
+        <div class="quote">
+          <h1 class="ml-5 display-4" style="max-width: 800px;">Take the world's best courses, online.</h1>
+          <div class="ml-5 input-group input-group-lg">
+            <input type="text" class="form-control quote-input" aria-label="Large" placeholder="What do you want to learn?">
+            <div class="input-group-prepend">
+              <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats" style="background: linear-gradient(-45deg,#ec5252,#6e1a52);">
+      <div class="container">
+        <div class="row text-light" style="padding-top:10px">
+          <div class="col-sm-4" >
+            <div class="col-sm-3 float-left" style="height:100%">
+              <span><i class="fas fa-mouse-pointer fa-3x"></i></span>
+            </div>
+            <div>
+              <b>65,000 online courses</b>
+              <p>Explore a variety of fresh topics</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="col-sm-3 float-left" style="height:100%">
+              <span><i class="far fa-question-circle fa-3x"></i></span>
+            </div>
+            <div>
+              <b>Expert instruction</b>
+              <p>Find the right instructor for you</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="col-sm-3 float-left" style="height:100%">
+              <span><i class="far fa-clock fa-3x"></i></span>
+            </div>
+            <div>
+              <b>Lifetime access</b>
+              <p>Learn on your schedule</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    {% include "partial/footer.html" with page_title='Foot' %}
+
+  </body>
+</html>
