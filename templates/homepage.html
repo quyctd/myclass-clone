@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% include "partial/meta-data.html" %}
   </head>
-  <body>
+  <body style="background-color: #f7f8fa">
 
     <!-- header -->
     {% include "partial/header.html" with page_title='Home' %}
@@ -27,7 +27,7 @@
     </section>
 
     <!-- Stats -->
-    <section class="stats" style="background: linear-gradient(-45deg,#ec5252,#6e1a52);">
+    <section class="stats" style="background: linear-gradient(-45deg,#04ce48,#018e72);">
       <div class="container">
         <div class="row text-light" style="padding-top:10px">
           <div class="col-sm-4" >
@@ -60,6 +60,17 @@
         </div>
       </div>
     </section>
+
+    <!-- Top courses -->
+    {% include "partial/top_courses.html" with page_title='Development' %}
+    {% include "partial/top_courses.html" with page_title='Business' %}
+    {% include "partial/top_courses.html" with page_title='Design' %}
+
+    <!-- See all button -->
+    <div class="text-center mt-5 mb-5">
+      <a href="#" class="btn btn-success btn-lg">See All Courses</a>
+    </div>
+
 
     <!-- footer -->
     {% include "partial/footer.html" with page_title='Foot' %}
