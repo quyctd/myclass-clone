@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user'
+    'social_django', # <----
+    'taggit', # <---
+    'user',
+    'courses',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',  # <--
 ]
 
 ROOT_URLCONF = 'myclass.urls'
@@ -63,6 +68,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -101,6 +109,26 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+SOCIAL_AUTH_PIPELINE = (
+'social_auth.backends.pipeline.social.social_auth_user',
+'social_auth.backends.pipeline.associate.associate_by_email',
+'social_auth.backends.pipeline.user.get_username',
+'social_auth.backends.pipeline.user.create_user',
+'social_auth.backends.pipeline.social.associate_user',
+'social_auth.backends.pipeline.user.update_user_details',
+'auth_pipelines.pipelines.get_user_avatar',
+)
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -119,4 +147,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = ( os.path.join('static'), )
+LOGIN_REDIRECT_URL = '/'
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '2040229989586057'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'd2b2cbaf40b40287979dc12e8a378f98'  # App Secret
