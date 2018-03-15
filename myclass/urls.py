@@ -19,10 +19,12 @@ from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     path('admin/', admin.site.urls),
 
     url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
 
     url(r'^', include("user.urls")),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--

@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -147,8 +150,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = ( os.path.join('static'), )
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = ( os.path.join('static'),)
 LOGIN_REDIRECT_URL = '/'
 
 

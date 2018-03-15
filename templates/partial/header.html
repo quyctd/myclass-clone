@@ -9,20 +9,20 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-inbox"></i> Categories
+          <i class="fas fa-inbox"></i> Danh mục khóa học
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Khóa học lập trình</a>
+          <a class="dropdown-item" href="#">Học Tiếng Anh</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Học thiết kế</a>
         </div>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 mr-auto">
       <form class="form-inline">
         <div class="form-group mx-sm-3" style="width:50vh">
-          <input style="width: 100%" type="text" class="form-control" id="inputPassword2" placeholder="Search for Courses">
+          <input style="width: 100%" type="text" class="form-control" id="inputPassword2" placeholder="Tìm kiếm khóa học">
         </div>
         <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
       </form>
@@ -30,13 +30,14 @@
     <ul class="navbar-nav">
       {% if user.is_authenticated %}
         <li class="nav-item">
-        <a class="nav-link" href="">Hello {{ user.last_name }}!</a></li>
-        
+        <a class="nav-link" href="">Xin chào {{ user.username }}!</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout/">Logout</a></li>
+
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="/login">Log In</a>
+          <a class="nav-link" href="/login">Đăng nhập</a>
         </li>
-        <li><a class="nav-link sign-up" href="/signin">Sign Up</a></li>
+        <li><a class="nav-link sign-up" href="/signup">Đăng ký</a></li>
       {% endif %}
     </ul>
   </div>
