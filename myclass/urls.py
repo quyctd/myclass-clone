@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
 
     url(r'^', include("user.urls")),
+    url(r'^course/', include("courses.urls")),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
 ]
 

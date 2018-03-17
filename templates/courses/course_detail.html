@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Tên khóa học: {{ course.ten_khoa_hoc }}</h2>
+  <p>Ảnh cover:{{ course.anh_cover }}
+  </p>
+  <p>Tác giả: {{ course.tac_gia }}</p>
+  <p>Ngày tạo : {{ course.ngay_tao }}</p>
+  <p>Miêu tả: {{ course.mieu_ta }}</p>
+  <ul class="tags">
+    {% for tag in course.tags.all %}
+      <li><small href="#" class="tag"> {{tag}}</small></li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

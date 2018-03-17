@@ -14,9 +14,12 @@ class CategoryInline(admin.TabularInline):
 
 class CourseAdmin(admin.ModelAdmin):
     inlines = [VideoInline, CategoryInline]
+    list_display = ("tac_gia", "ten_khoa_hoc", "ngay_tao",)
+    list_filter = ("tac_gia", "ten_khoa_hoc", "ngay_tao")
+    search_fields = ("tac_gia", "ten_khoa_hoc")
 
 
-admin.site.register(KhoaHoc, CourseAdmin)
+admin.site.register(Course, CourseAdmin)
 admin.site.register(Video)
 admin.site.register(Category)
 admin.site.site_header = "ADMIN SITE"

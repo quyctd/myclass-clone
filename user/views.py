@@ -2,10 +2,15 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
+from courses.models import *
 # Create your views here.
 
 def index(request):
-    return render(request, "homepage.html")
+    courses = Course.objects.all()
+    context = {
+        "courses" : courses,
+    }
+    return render(request, "homepage.html", context=context)
 
 def signup(request):
     if request.method == 'POST':
