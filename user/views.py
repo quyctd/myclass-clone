@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from courses.models import *
+from user.forms import UserProfileForm, UserForm
 # Create your views here.
 
 def index(request):
@@ -14,7 +15,8 @@ def index(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        uform = UserCreationForm(request.POST)
+        pform = UserProfileForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -23,5 +25,9 @@ def signup(request):
             login(request, user)
             return redirect('home')
     else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+        uform = UserForm()
+        pform = UserProfileForm()
+    return render(request, 
+                'registration/signup.html', 
+                {'uform': uform, 'pform': pform}
+                )

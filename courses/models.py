@@ -14,12 +14,12 @@ class Course(models.Model):
         return self.ten_khoa_hoc
 
 class Video(models.Model):
-    khoa_hoc = models.ForeignKey(Course, related_name= "Course", on_delete= models.CASCADE)
+    khoa_hoc = models.ForeignKey(Course, related_name= "video", on_delete= models.CASCADE)
     link_video = models.URLField()
 
 class Category(models.Model):
     ten_danh_muc = models.CharField(max_length = 255)
-    khoa_hoc = models.ManyToManyField(Course, blank = True)
+    khoa_hoc = models.ManyToManyField(Course, blank = True, related_name="categories")
 
     def __str__(self):
         return self.ten_danh_muc

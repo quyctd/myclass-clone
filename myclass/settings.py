@@ -9,12 +9,18 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+try:
+    from configparser import RawConfigParser
+except ImportError:
+    from ConfigParser import RawConfigParser
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+PROJECT_DIR = os.path.dirname(BASE_DIR)
+
+config = RawConfigParser()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -33,7 +39,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'jet.dashboard',
     'jet',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -150,10 +155,50 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = ( os.path.join('static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATICFILES_DIRS = ( os.path.join('static'),)
 LOGIN_REDIRECT_URL = '/'
 
 
 SOCIAL_AUTH_FACEBOOK_KEY = '2040229989586057'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd2b2cbaf40b40287979dc12e8a378f98'  # App Secret
+
+JET_DEFAULT_THEME = 'default'
+JET_THEMES = [
+    {
+        'theme': 'default',
+        'color': '#47bac1',
+        'title': 'Default'
+    },
+    {
+        'theme': 'green',
+        'color': '#44b78b',
+        'title': 'Green'
+    },
+    {
+        'theme': 'light-green',
+        'color': '#2faa60',
+        'title': 'Light Green'
+    },
+    {
+        'theme': 'light-violet',
+        'color': '#a464c4',
+        'title': 'Light Violet'
+    },
+    {
+        'theme': 'light-blue',
+        'color': '#5EADDE',
+        'title': 'Light Blue'
+    },
+    {
+        'theme': 'light-gray',
+        'color': '#222',
+        'title': 'Light Gray'
+    }
+]
+JET_INDEX_DASHBOARD = "dashboard.CustomIndexDashboard"
+JET_APP_INDEX_DASHBOARD = "dashboard.CustomAppIndexDashboard"
+
+JET_MODULE_YANDEX_METRIKA_CLIENT_ID = '46de85bff0f94c82bbf42be177f128a2'
+JET_MODULE_YANDEX_METRIKA_CLIENT_SECRET = '01107ac1049b49ab9b24e60e95ba2a93'
+JET_MODULE_GOOGLE_ANALYTICS_CLIENT_SECRETS_FILE = os.path.join(PROJECT_DIR, 'client_secret.json')
