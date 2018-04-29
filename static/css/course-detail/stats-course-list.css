@@ -1,0 +1,95 @@
+.widget {
+    padding: 15px 20px;
+    background: #fff;
+    margin: 0 0 1.5em;
+}
+
+section:first-child .widget-title {
+    margin-top: 0;
+}
+
+.widget-title{
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    position: relative;
+    line-height: normal;
+}
+
+.bright-course-list .bright-course-item {
+    margin-bottom: 15px;
+}
+
+.hentry {
+    margin: 0 0 30px;
+}
+
+.bright-course-list .courses-wrap{
+    box-shadow: none;
+}
+
+.courses-wrap {
+    margin-bottom: 0;
+    background: none;
+}
+
+.courses-wrap {
+    border-radius: 0;
+    line-height: 1.42857143;
+    transition: all 0.2s ease-in-out;
+    height: 100%;
+}
+
+.courses-wrap .col-xs-3.bright-course-thumb {
+    padding-right: 0;
+}
+
+.thumb{
+    position: relative;
+    overflow: hidden;
+}
+.bright-course-thumb img {
+    width: 100%;
+    height: auto;
+}
+
+.courses-wrap .course-detail-wrap .course-content {
+    padding: 0;
+}
+.bright-course-list .courses-wrap .course-detail-wrap .course-content h3{
+    margin-top: 0;
+}
+
+.widget .bright-course-list .bright-course-meta>span {
+    margin-right: 1px;
+}
+.bright-course-list .bright-course-meta>span,
+.bright-course-list .bright-course-meta>span {
+    display: inline-block;
+}
+.bright-course-list .bright-course-meta>span {
+    display: inline-block;
+    margin-right: 5px;
+    padding-right: 5px;
+    border-right: 1px solid;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.widget .bright-course-list .bright-course-meta>span {
+    margin-right: 1px;
+}
+
+.bright-course-list .bright-course-meta>span:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0;
+}
+
+.bright-course-list .bright-course-meta>span {
+    font-size: 12px;
+    line-height: 12px;
+}

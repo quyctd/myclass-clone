@@ -11,3 +11,10 @@ class UserProfile(models.Model):
         return self.user.username
 
 
+class Teacher(models.Model):
+    base_info = models.OneToOneField(User, on_delete=models.CASCADE, blank = True, null = True)
+    first_name = models.CharField(max_length = 30, blank = True, null = True)
+    last_name = models.CharField(max_length = 30, blank = True, null = True)
+
+    def __str__(self):
+        return self.first_name

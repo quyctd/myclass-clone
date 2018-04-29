@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% include "partial/meta-data.html" %}
+    <link rel="stylesheet" href="/static/css/list_course.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <title>List course</title>
+</head>
+<body class='bright-page-layout-full-width'>
+    <!-- Header -->
+    {% include "partial/header.html" %}
+    <!-- Image Logo List Course -->
+    <div class="bright-page-title-area">
+        <div class="bright-page-title">
+            <div class="container">
+                <h1 class="entry-title">Danh sách khóa học</h1>
+            </div>
+        </div>
+        <div class="bright-breadcrumb-wrapper">
+            <div class="container">
+                <nav class="learn-press-breadcrumb"><a href="#">Home</a><i class="fas fa-caret-right mx-2"></i>tất cả khóa học</nav> 
+            </div>
+        </div>
+    </div>          
+
+    <!-- Course display -->
+    {% include "courses/course_list_partial/course_display.html" %}
+    <!-- footer -->
+    {% include "partial/footer.html" %}
+
+</body>
+</html>

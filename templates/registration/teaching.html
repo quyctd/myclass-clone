@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	{% include 'partial/meta-data.html' %}
+	<link rel="stylesheet" href="../../static/css/login_css.css">
+	
+</head>
+<body>
+	
+	<div class="login-page">
+		<div class="form">
+			<form class="login-form" method='post'>
+				{% csrf_token %}
+				{% for field in form %}
+					{% if field.name != 'base_info' %}
+						<p style="text-align:left;">{{field.label_tag}}</p>
+						{{field}}
+						<small style="color: grey">{{ field.help_text|safe }}</small>
+						
+						{% for error in field.errors %}
+							<p style="color: red">{{ error }}</p>
+						{% endfor %}
+					{% else %}
+						<p class="mb-0" style="text-align:left;">{{field.label_tag}}</p>
+						<small style="color: grey;">Base info can't change</small>
+						 {{field}}
+						 {% for error in field.errors %}
+							<p style="color: red">{{ error }}</p>
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+
+				<button type='submit'>Become Teacher</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

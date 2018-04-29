@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {% include "partial/meta-data.html" %}
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    {% include "partial/header.html" with page_title='Home' %}
+    
+    <!-- Main Setting -->
+    <div class="container border p-3 bg-white mt-3">
+        <div class="row">
+            <div class="col-3">
+                <ul class="list-group list-unstyled" id="list-tab" role="tablist">
+                    <li>
+                        <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt="" width="100%">
+                    </li>
+                    <li class="text-center my-2 font-weight-bold">Avat Ton</li>
+                    <li>
+                        <a class="list-group-item border-0 list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">Profile</a>
+                    </li>
+                    <li>
+                        <a class="list-group-item border-0 list-group-item-action" id="list-password-list" data-toggle="list" href="#list-password" role="tab">Change Password</a>
+                    </li>
+                    <!-- <li>
+                        <a class="list-group-item list-group-item-action" id="list-instructor-list" data-toggle="list" href="#list-instructor" role="tab" >Instructor Settings</a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-profile" role="tabpanel">
+                        {% include "registration/settings/profile.html" %}
+                    </div>
+                    <div class="tab-pane fade" id="list-password" role="tabpanel">
+                         {% include "registration/settings/password.html" %}
+                    </div>
+                    <!-- <div class="tab-pane fade" id="list-instructor" role="tabpanel">teacher</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    {% include "partial/footer.html" with page_title='Foot' %}
+
+</body>
+
+</html>

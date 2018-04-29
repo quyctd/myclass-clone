@@ -1,28 +1,22 @@
 {% extends '../base.html' %}
-
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in uform %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text|safe }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    
-    {% for field in pform %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-  </form>
+<link rel="stylesheet" href="../../static/css/login_css.css">
+
+    <div class="login-page">
+      <div class="form">
+        <form class="register-form" method='post'>
+          {% csrf_token %}
+          {% for field in uform %}
+              <p style="text-align:left;">{{field.label_tag}}</p>
+              {{field}}
+              {% for error in field.errors %}
+                <small style="color: grey">{{ field.help_text|safe }}</small>
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+          {% endfor %}
+          <button type="submit">create</button>
+          <p class="message">Already registered? <a href="/login">Sign In</a></p>
+        </form>
+      </div>
+    </div>
 {% endblock %}

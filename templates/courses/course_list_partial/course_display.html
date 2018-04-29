@@ -1,0 +1,82 @@
+<div id="content" class="site-content fullwidth_page">
+    <div class="bright-main-content-inner">
+        <div id="primary" class="content-area page_no_sidebar">
+            <main id="main" class="site-main">
+                <article class="page type-page status-publish hentry">
+                    <div class="entry-content">
+                        <div class="vc_row wpb_row vc_row-fluid">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                                        <div class="vc_column-inner ">
+                                            <div class="wpb_wrapper"> 
+                                                <div class="bright-course-list_lg slider-nav-true">
+                                                    {% for course in courses %}
+                                                    <div class="bright-course-item  bright-course-price-on bright-course-enroll-btn-on bright-course-students-on bright-course-review-on bright-show-course-meta-on post-4419 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-bachelors-programs course">
+                                                        <div class="courses-wrap row">
+                                                            <div class="bright-course-thumb col-md-4 col-sm-6 col-xs-12">
+                                                                <div class="thumb">
+                                                                    <img width="370" height="240" src="../media/{{course.anh_cover}}" class="attachment-bright-course-thumb size-bright-course-thumb wp-post-image" alt="Computer Science">
+                                                                        <div class="courses-price">
+                                                                            <p class="years">Duration: 10 week</p> <span class="price">$79.00</span> 
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bright-course-details col-md-8 col-sm-6 col-xs-12">
+                                                                <div class="course-detail-wrap">
+                                                                    <div class="course-content">
+                                                                        <h3><a href="">{{course.ten_khoa_hoc}}</a></h3>
+                                                                        <div class="bright-course-meta"> 
+                                                                            <span class="course-instructor">
+                                                                                <a href=""><i class="fas fa-user"></i> <span>{{ course.tac_gia }}</span> </a>
+                                                                            </span>
+                                                                            <i class="fas fa-users"></i>
+                                                                            <span class="course-students" title="No student enrolled">
+                                                                            0 student
+                                                                            </span>
+                                                                            <span class="meta-course-rating"> 
+                                                                            <div class="course-review">
+                                                                                <label>Review</label>
+                                                                                    <div class="value">
+                                                                                        <div class="bright-review-stars-wrapper">
+                                                                                            <ul class="bright-review-stars">
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                            </ul>
+                                                                                            <ul class="bright-review-stars fill" style="width: 0%">
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                                <li><span class="fas fa-star"></span></li>
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                        <span>(0 review)</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </span>
+                                                                        </div>
+                                                                        <p>{{ course.mieu_ta|truncatechars:300 }}</p>
+                                                                        <a class="btn btn-common btn-sm" href="/course/{{course.id}}/">Details</a> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                     </div>
+                                                    {%endfor%}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </article>
+            </main>
+        </div>
+    </div>
+</div>

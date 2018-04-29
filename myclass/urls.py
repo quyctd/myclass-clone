@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from jet.dashboard.dashboard_modules import google_analytics_views
@@ -31,16 +33,20 @@ urlpatterns = [
         {'template_name': 'registration/login.html'}, 
         name='login'
     ),
+    
     url(r'^logout/$', 
         auth_views.logout, 
-        {'template_name': 'registration/logged_out.html'}, 
+        {'template_name': 'homepage.html'}, 
         name='logout'
     ),
     url(r'^', include("user.urls")),
     url(r'^course/', include("courses.urls")),
-    url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
+    url(r'^oauth/', include('social_django.urls', namespace='social')),  # <-- Can't remove?
 ]
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -7,9 +7,12 @@ from django.views.generic import DetailView
 class CourseDetailView(DetailView):
     model = Course
 
-def course_list(request):
+def courses_list(request):
     courses = Course.objects.all()
     context = {
         "courses": courses,
     }
-    return render(request, 'courses/course_list.html', context=context)
+    return render(request, 'courses/list_all_course.html', context=context)
+
+def categories(request, pk):
+    return render(request, "courses/course_categories.html")

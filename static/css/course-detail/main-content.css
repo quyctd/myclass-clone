@@ -1,0 +1,141 @@
+#learn-press-course-tabs {
+    margin-bottom: 40px;
+}
+
+.course-tabs {
+    margin-top: 20px;
+    padding: 0;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .15);
+    background: #fff;
+}
+
+.learn-press-nav-tabs {
+    padding: 0;
+    margin: 0;
+    border-bottom: 5px solid;
+    border-color: #ff4f57;
+}
+
+.nav-pills .nav-link.active {
+    color: #fff;
+    background: #ff4f57;
+    border:none;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: #212121;
+}
+
+.nav-link-override {
+    display: block;
+    padding: 14px 20px;
+}
+
+.course-tab-panel {
+    padding: 30px;
+}
+
+.bright-course-content {
+    border-right: 1px solid #ededed;
+}
+
+.bright-course-content .course-description {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.course-tab-panel h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.course-tab-panel ul {
+    margin: 0;
+    padding: 0;
+}
+
+.bright-course-info li {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ededed;
+}
+
+.bright-course-info li>span {
+    display: inline-block;
+}
+
+.bright-course-info li>span.course-info-value {
+    float: right;
+    min-width: 60px;
+    text-align: left;
+}
+
+/* curriculum */
+ul.curriculum-sections {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.course-item-meta {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    float: right;
+}
+.course-item-meta .duration {
+    background: #009688;
+}
+.course-item-meta .item-meta {
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    padding: 0 8px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.curriculum-border {
+    border-bottom: 1px solid #eee;
+}
+
+/* Instructor */
+
+.course-author {
+    margin-bottom: 70px;
+}
+
+.course-author .author-name {
+    float: left;
+    margin: 0 20px 0 0;
+    text-align: center;
+}
+
+.course-author .author-name img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.course-author .author-name a {
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+}
+.course-author .author-bio {
+    font-size: 15px;
+    font-style: italic;
+}

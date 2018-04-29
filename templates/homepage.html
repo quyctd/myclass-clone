@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% include "partial/meta-data.html" %}
+    <link rel="stylesheet" href="/static/css/style.css">
   </head>
   <body style="background-color: #f7f8fa">
 
@@ -12,65 +13,21 @@
     {% include "partial/header.html" with page_title='Home' %}
 
     <!-- heading quote -->
-    <section class="head-quote">
-      <div class="bg-shadow ">
-        <div class="quote">
-          <h1 class="ml-5 display-5" style="max-width: 800px;">Tham gia các khóa học tốt nhất chỉ với 1 cú click chuột!</h1>
-          <div class="ml-5 input-group input-group-lg">
-            <input type="text" class="form-control quote-input" aria-label="Large" placeholder="Bạn muốn học gì hôm nay?">
-            <div class="input-group-prepend">
-              <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    {% include "homepage/heading_quote.html" %}
 
     <!-- Stats -->
-    <section class="stats" style="background: linear-gradient(-45deg,#04ce48,#018e72);">
-      <div class="container">
-        <div class="row text-light" style="padding-top:10px">
-          <div class="col-sm-4" >
-            <div class="col-sm-3 float-left" style="height:100%">
-              <span><i class="fas fa-mouse-pointer fa-3x"></i></span>
-            </div>
-            <div>
-              <b>65,000 khóa học online</b>
-              <p>Khám phá nhiều chủ đề mới</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="col-sm-3 float-left" style="height:100%">
-              <span><i class="far fa-question-circle fa-3x"></i></span>
-            </div>
-            <div>
-              <b>Các chuyên gia hàng đầu</b>
-              <p>Tìm người thầy phù hợp cho bạn</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="col-sm-3 float-left" style="height:100%">
-              <span><i class="far fa-clock fa-3x"></i></span>
-            </div>
-            <div>
-              <b>Truy cập bất cứ lúc nào</b>
-              <p>Học tập dựa trên lịch trình của bạn</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    {% include 'homepage/stats.html' %}
 
     <!-- Top courses -->
-    {% include "homepage/top_courses.html" with page_title='Lập Trình' %}
-    {% include "homepage/top_courses.html" with page_title='Kinh Doanh' %}
-    {% include "homepage/top_courses.html" with page_title='Design' %}
+    {% for category in categories %}
+      {% include "homepage/top_courses.html" with page_title=category.ten_danh_muc %}      
+    {% endfor %}
+    
 
     <!-- See all button -->
     <div class="text-center mt-5 mb-5">
-      <a href="#" class="btn btn-success btn-lg">Xem tất cả các khóa học</a>
+      <a href="/course/" class="btn btn-success btn-lg">Xem tất cả các khóa học</a>
     </div>
-
 
     <!-- footer -->
     {% include "partial/footer.html" with page_title='Foot' %}

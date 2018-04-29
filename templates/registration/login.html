@@ -2,19 +2,37 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Login</title>
+<link rel="stylesheet" href="../../static/css/login_css.css">
+	
 </head>
 <body>
-	<h1>Simple Social Auth</h1>
-	<hr>
-	<h2>Login</h2>
-	  <form method="post">
-	    {% csrf_token %}
-	    {{ form.as_p }}
-	    <button type="submit">Login</button>
-	  </form>
-	  <br>
-	  <p><strong>-- OR --</strong></p>
-	  <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+	
+	<div class="login-page">
+		<div class="form">
+			<form class="login-form" method='post'>
+				{% csrf_token %}
+				{% for field in form %}
+					<p style="text-align:left;">{{field.label_tag}}</p>
+					{{field}}
+					<small style="color: grey">{{ field.help_text|safe }}</small>
+					
+					{% for error in field.errors %}
+						<p style="color: red">{{ error }}</p>
+					{% endfor %}
+				{% endfor %}
+				
+				{% if form.errors %}
+				<p class="label label-danger">
+					Your username and password didn't match. 
+					Please try again.
+				</p>
+				{% endif %}
+
+				<button type='submit'>login</button>
+				<p class="message">Not registered? <a href="/signup">Create an account</a></p>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

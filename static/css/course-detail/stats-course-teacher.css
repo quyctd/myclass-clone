@@ -1,0 +1,14 @@
+.bright-instructor-content-type-list .teacher-item {
+    margin-bottom: 15px;
+}
+.bright-instructor-content-type-list .teacher-item .thumb-teacher {
+    padding-right: 0;
+}
+
+.bright-instructor-content-type-list .teacher-item .teacher-desc h3 {
+    margin-top: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: unset;
+}

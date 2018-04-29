@@ -1,0 +1,120 @@
+.bright-single-course-header {
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .15);
+}
+
+.course-summary .entry-title {
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+    margin-top: -5px;
+    margin-bottom: 22px;
+    text-transform: none;
+}
+.course-summary .course-meta {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.course-summary .course-meta>div {
+    display: inline-block;
+    line-height: 20px;
+    margin-right: 16px;
+    padding-right: 16px;
+    border-right: 1px solid #ededed;
+    margin-bottom: 20px;
+}
+.course-summary .course-meta>div.course-author img {
+    border-radius: 50%;
+    width: 40px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+}
+img {
+    max-width: 100%;
+}
+
+.course-summary .course-meta>div.course-author .author-contain {
+    display: inline-block;
+}
+.course-summary .course-meta label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.course-summary .course-meta .value {
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #333;
+}
+.course-summary .course-payment .course-price {
+    font-size: 20px;
+    line-height: normal;
+    font-weight: 700;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.course-price {
+    margin-bottom: 10px;
+}
+.course-summary .course-payment .course-price .origin-price {
+    opacity: .5;
+    margin-right: 5px;
+}
+.lp-single-course .course-price .origin-price {
+    font-size: 18px;
+    text-decoration: line-through;
+    font-style: italic;
+    /* margin-right: 10px; */
+}
+.lp-single-course .course-price .price {
+    font-size: 24px;
+}
+.lp-single-course .course-price .price {
+    vertical-align: middle;
+}
+
+.bright-single-course-header .course-payment .lp-course-buttons {
+    display: inline-block;
+}
+
+.lp-single-course .bright-single-course-header .lp-course-buttons {
+    margin: 0;
+}
+.bright-single-course-header .course-payment .lp-course-buttons>* {
+    margin-right: 15px;
+}
+.enroll-course {
+    display: inline-block;
+}
+.bright-single-course-header .lp-button {
+    height: unset;
+    line-height: 1.42857143;
+    padding: 10px 30px;
+    background: #ff4f57;
+}
+
+.lp-button {
+    font-weight: 400;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid transparent;
+    transition: all 0.3s linear;
+    overflow: hidden;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+.lp-button:hover {
+    background:#cc232b;
+    cursor: pointer;
+}

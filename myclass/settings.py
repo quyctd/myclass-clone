@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django', # <----
     'taggit', # <---
     'user',
     'courses',
@@ -59,8 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'social_django.middleware.SocialAuthExceptionMiddleware',  # <--
+    # 'myclass.middleware.custom_lang.AdminLocaleURLMiddleware',
 ]
 
 ROOT_URLCONF = 'myclass.urls'
@@ -77,8 +75,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'social_django.context_processors.backends',  # <--
-                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -142,6 +138,8 @@ SOCIAL_AUTH_PIPELINE = (
 
 LANGUAGE_CODE = 'en-us'
 
+ADMIN_LANGUAGE_CODE='vi'
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -155,50 +153,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-# STATICFILES_DIRS = ( os.path.join('static'),)
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = ( os.path.join('static'),)
 LOGIN_REDIRECT_URL = '/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
-SOCIAL_AUTH_FACEBOOK_KEY = '2040229989586057'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'd2b2cbaf40b40287979dc12e8a378f98'  # App Secret
 
-JET_DEFAULT_THEME = 'default'
-JET_THEMES = [
-    {
-        'theme': 'default',
-        'color': '#47bac1',
-        'title': 'Default'
-    },
-    {
-        'theme': 'green',
-        'color': '#44b78b',
-        'title': 'Green'
-    },
-    {
-        'theme': 'light-green',
-        'color': '#2faa60',
-        'title': 'Light Green'
-    },
-    {
-        'theme': 'light-violet',
-        'color': '#a464c4',
-        'title': 'Light Violet'
-    },
-    {
-        'theme': 'light-blue',
-        'color': '#5EADDE',
-        'title': 'Light Blue'
-    },
-    {
-        'theme': 'light-gray',
-        'color': '#222',
-        'title': 'Light Gray'
-    }
-]
-JET_INDEX_DASHBOARD = "dashboard.CustomIndexDashboard"
-JET_APP_INDEX_DASHBOARD = "dashboard.CustomAppIndexDashboard"
-
-JET_MODULE_YANDEX_METRIKA_CLIENT_ID = '46de85bff0f94c82bbf42be177f128a2'
-JET_MODULE_YANDEX_METRIKA_CLIENT_SECRET = '01107ac1049b49ab9b24e60e95ba2a93'
-JET_MODULE_GOOGLE_ANALYTICS_CLIENT_SECRETS_FILE = os.path.join(PROJECT_DIR, 'client_secret.json')

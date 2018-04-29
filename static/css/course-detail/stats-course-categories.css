@@ -1,0 +1,32 @@
+.widget .ep_course_category_list {
+    box-shadow: none;
+    background: inherit;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+}
+.ep_course_category_list ul {
+    margin: 0;
+    padding: 0;
+}
+.ep_course_category_list.bright-cat-list-desktop ul>li:first-child{
+    padding-top: 0;
+}
+.widget ul li {
+    list-style: none;
+}
+.ep_course_category_list li {
+    position: relative;
+}
+.widget .ep_course_category_list li:first-child a {
+    padding-top: 0;
+}
+.widget .ep_course_category_list a {
+    padding: 6px 0;
+}
+.ep_course_category_list a {
+    position: relative;
+    color: inherit;
+    display: block;
+    font-weight: 500;
+}
