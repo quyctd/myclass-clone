@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
+from courses import views as crs_views
 from jet.dashboard.dashboard_modules import google_analytics_views
 
 admin.autodiscover()
@@ -36,9 +37,10 @@ urlpatterns = [
     
     url(r'^logout/$', 
         auth_views.logout, 
-        {'template_name': 'homepage.html'}, 
+        {'next_page': 'home'},
         name='logout'
     ),
+    url(r'^search/$', crs_views.search, name="search"),
     url(r'^', include("user.urls")),
     url(r'^course/', include("courses.urls")),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <-- Can't remove?

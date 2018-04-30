@@ -1,0 +1,37 @@
+.widget {
+    padding: 15px 20px;
+    background: #fff;
+    margin: 0 0 1.5em;
+}
+
+.widget-title{
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    position: relative;
+    line-height: normal;
+}
+
+.widget ul {
+    margin: 0;
+    padding: 0;
+    list-style: disc;
+}
+
+.widget_categories ul>li:first-child{
+    padding-top: 0;
+}
+.widget_categories ul li{
+    border-bottom: 1px solid #EFEFEF;
+    padding: 15px 0;
+    margin-bottom: 0;
+}
+.widget ul li {
+    list-style: none;
+}
+.widget ul li a{
+    text-decoration: none;
+}

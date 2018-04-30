@@ -1,20 +1,20 @@
 <div class="bright-single-course-header clearfix course-summary bg-white">
-    <h1 itemprop="name" class="entry-title">Become a PHP Master</h1>
+    <h1 itemprop="name" class="entry-title">{{course.ten_khoa_hoc}}</h1>
     <div class="course-meta">
         <div class="course-author">
             <img src="http://bright.wpbranch.com/wp-content/uploads/2017/07/1920-copy-150x150.jpg" width="40" height="40" alt="Jen Maroney">
             <div class="author-contain">
-                <label>Teacher</label>
+                <label>Giảng viên</label>
                 <div class="value">
-                    <a href="">Jen Maroney</a>
+                    <a href="">{{ course.tac_gia }}</a>
                 </div>
             </div>
         </div>
         <div class="course-categories">
-            <label>Categories</label>
+            <label>Danh mục</label>
             <div class="value">
                 <span class="cat-links">
-                    <a href="">Web Development</a>
+                    <a href="">{{course.categories.all.0.ten_danh_muc}}</a>
                 </span>
             </div>
         </div>
@@ -23,14 +23,14 @@
     <div class="course-payment">
         <div class="course-price">
             <span class="origin-price"> $99.00</span>
-            <span class="price">Free</span>
+            <span class="price">Miễn phí</span>
         </div>
         <div class="lp-course-buttons">
             <form name="enroll-course" class="enroll-course" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="enroll-course" value="1907">
                 <input type="hidden" name="enroll-course-nonce" value="a4d76bb751">
                 <button class="lp-button button button-enroll-course">
-                    Enroll </button>
+                    Ghi Danh </button>
             </form>
         </div>
     </div>

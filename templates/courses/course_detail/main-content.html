@@ -2,15 +2,15 @@
     <ul class="nav nav-pills learn-press-nav-tabs" id="pills-tab" role="tablist">
         <li class="nav-item">
             <a class="nav-link nav-link-override active" id="pills-overviews-tab" data-toggle="pill" href="#pills-overviews" role="tab" aria-controls="pills-overviews"
-                aria-selected="true">Overview</a>
+                aria-selected="true">Tổng quan</a>
         </li>
         <li class="nav-item">
             <a class="nav-link nav-link-override" id="pills-curriculum-tab" data-toggle="pill" href="#pills-curriculum" role="tab" aria-controls="pills-curriculum"
-                aria-selected="false">Curriculum</a>
+                aria-selected="false">Đề cương khóa học</a>
         </li>
         <li class="nav-item">
             <a class="nav-link nav-link-override" id="pills-instructor-tab" data-toggle="pill" href="#pills-instructor" role="tab" aria-controls="pills-instructor"
-                aria-selected="false">Instructor</a>
+                aria-selected="false">Giảng viên</a>
         </li>
         
     </ul>
@@ -23,34 +23,29 @@
                     </div>
                 </div>
                 <div class="bright-course-info col-md-4">
-                    <h3>Course Features</h3>
+                    <h3>Số liệu khóa học</h3>
                     <ul>
                         <li>
                             <i class="fas fa-users mr-2 text-danger"></i>
-                            <span class="course-info-label">Students</span>
+                            <span class="course-info-label">Học viên</span>
                             <span class="course-info-value">
-                                <span class="course-students">111 students</span>
+                                <span class="course-students">111 học viên</span>
                             </span>
                         </li>
                         <li>
-                            <i class="fas fa-check mr-2 text-danger"></i>
-                            <span class="course-info-label">Max Students</span>
-                            <span class="course-info-value">200</span>
-                        </li>
-                        <li>
                             <i class="far fa-clock mr-2 text-danger"></i>
-                            <span class="course-info-label">Duration</span>
-                            <span class="course-info-value">12 week</span>
+                            <span class="course-info-label">Thời lượng</span>
+                            <span class="course-info-value">12 giờ</span>
                         </li>
                         <li>
                             <i class="fas fa-level-up-alt mr-2 text-danger"></i>
-                            <span class="course-info-label">Skill level</span>
-                            <span class="course-info-value">all</span>
+                            <span class="course-info-label">Cấp độ</span>
+                            <span class="course-info-value">Tất cả</span>
                         </li>
                         <li>
                             <i class="fas fa-language mr-2 text-danger"></i>
-                            <span class="course-info-label">Language</span>
-                            <span class="course-info-value">English</span>
+                            <span class="course-info-label">Ngôn ngữ</span>
+                            <span class="course-info-value">Tiếng việt</span>
                         </li>
                     </ul>
                 </div>
@@ -93,10 +88,10 @@
         </div>
         <div class="tab-pane course-tab-panel fade" id="pills-instructor" role="tabpanel">
                 <div class="course-author">
-                    <h3>Instructor</h3>
+                    <h3>Giảng viên</h3>
                     <p class="author-name">
                         <img src="http://bright.wpbranch.com/wp-content/uploads/2017/07/1920-copy-150x150.jpg" width="96" height="96" alt="Jen Maroney">
-                        <a href="">Jen Maroney</a>
+                        <a href="">{{course.tac_gia}}</a>
                     </p>
                     <div class="author-bio">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy

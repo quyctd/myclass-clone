@@ -1,0 +1,8 @@
+<section id="tag_cloud-2" class="widget widget_tag_cloud">
+    <h3 class="widget-title">Tags</h3>
+    <div class="tagcloud">
+        {% for tag in tags %}
+            <a class="tag-cloud-link">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+</section>

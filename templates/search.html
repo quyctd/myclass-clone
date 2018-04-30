@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    {% include "partial/meta-data.html" %}
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/list_course.css">
+    
+    <link rel="stylesheet" href="/static/css/search/not-found.css">
+    <link rel="stylesheet" href="/static/css/search/categories.css">
+    <link rel="stylesheet" href="/static/css/search/tags.css">
+    
+    <title>List course</title>
+</head>
+
+<body class='bright-page-layout-full-width' style="background-color: #f7f8fa">
+    <!-- Header -->
+    {% include "partial/header.html" %}
+    <!-- Image Logo List Course -->
+    <div class="bright-page-title-area">
+        <div class="bright-page-title">
+            <div class="container">
+                <h1 class="entry-title">Kết quả tìm kiếm</h1>
+            </div>
+        </div>
+        <div class="bright-breadcrumb-wrapper">
+            <div class="container">
+                <nav class="learn-press-breadcrumb">
+                    <a href="#">Home</a>
+                    <i class="fas fa-caret-right mx-2"></i>Kết quả tìm kiếm cho "{{ request.GET.q }}"</nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search display -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                {% if courses|length == 0 %}
+                    {% include "search/not-found.html" %}
+                {% else %}
+                    {% include "search/found.html" %}
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                {% include "search/categories.html" %}
+                {% include "search/tags.html" %}
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    {% include "partial/footer.html" %}
+
+</body>
+
+</html>

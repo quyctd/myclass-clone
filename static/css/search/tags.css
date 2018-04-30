@@ -1,0 +1,17 @@
+.widget.widget_tag_cloud a{
+    border-color: #cc232b;
+    background: #ff4f57;
+    font-size: 14px !important;
+    margin: 0 5px 8px 0;
+    display: inline-block;
+    padding: 12px 18px;
+    color: #fff;
+    line-height: 13px;
+    text-decoration: none;
+}
+
+.widget.widget_tag_cloud a:hover{
+    background: rgb(204, 35, 43);
+    transition: all 0.5s;
+    color: #fff;
+}

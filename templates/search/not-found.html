@@ -1,0 +1,15 @@
+<div class="jumbotron">
+    <h1 class="display-4">Không tìm thấy</h1>
+    <p class="lead">Rất tiếc, nhưng không có gì phù hợp với cụm từ tìm kiếm của bạn. Vui lòng thử lại với một số từ khóa khác nhau.</p>
+    
+    <form role="search" method="get" action="{% url 'search' %}">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" name='q' value="{{ request.GET.q }}">
+            <div class="input-group-prepend">
+                <button type="submit" class="px-4 input-group-text bg-danger">
+                    <i class="fas fa-search text-light"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

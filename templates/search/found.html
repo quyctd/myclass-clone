@@ -1,0 +1,15 @@
+<div class="container">
+    {% for course in courses %}
+        <div class="shadow row border p-2 mb-3 bg-white">
+            <div class="col-md-3">
+                <img src="/media/{{ course.anh_cover }}" alt="" height="152.500px" style="object-fit:cover;">
+            </div>
+            <div class="col-md-9">
+                <h3>{{ course.ten_khoa_hoc }}</h3>
+                <small>{{course.tac_gia}}</small>
+                <p>{{course.mieu_ta|truncatechars:100}}</p>
+                <a href="/course/{{course.id}}"><i class="fas fa-angle-double-right mr-1"></i>Xem chi tiết</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

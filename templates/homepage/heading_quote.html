@@ -2,12 +2,14 @@
 <div class="bg-shadow ">
     <div class="quote">
     <h1 class="ml-5 display-5" style="max-width: 800px;">Tham gia các khóa học tốt nhất chỉ với 1 cú click chuột!</h1>
-    <div class="ml-5 input-group input-group-lg">
-        <input type="text" class="form-control quote-input" aria-label="Large" placeholder="Bạn muốn học gì hôm nay?">
-        <div class="input-group-prepend">
-        <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
+    <form action="{% url 'search' %}" method='GET'>
+        <div class="ml-5 input-group input-group-lg">
+            <input type="text" class="form-control quote-input" name='q' placeholder="Bạn muốn học gì hôm nay?">
+            <div class="input-group-prepend">
+                <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
+            </div>
         </div>
-    </div>
+    </form>
     </div>
 </div>
 </section>

@@ -40,7 +40,7 @@
   <div class="bright-page-title-area">
     <div class="bright-page-title">
       <div class="container">
-        <h1 class="entry-title">Danh sách khóa học</h1>
+        <h1 class="entry-title">Chi tiết khóa học</h1>
       </div>
     </div>
     <div class="bright-breadcrumb-wrapper">
@@ -48,7 +48,7 @@
         <nav class="learn-press-breadcrumb">
           <a href="#">Home</a>
           <i class="fas fa-caret-right mx-2 text-light"></i>Khóa học
-          <i class="fas fa-caret-right mx-2"></i> Tên category
+          <i class="fas fa-caret-right mx-2"></i> {{ course.categories.all.0.ten_danh_muc }}
           <i class="fas fa-caret-right mx-2"></i>{{ course.ten_khoa_hoc }}
         </nav>
       </div>

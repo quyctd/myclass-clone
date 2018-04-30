@@ -41,4 +41,8 @@ def teacher(request):
     return render(request, 'registration/teaching.html', {'form':form})
 
 def setting(request):
+    user = request.user
+    context = {
+        "user": user,
+    }
     return render(request, "registration/setting.html")

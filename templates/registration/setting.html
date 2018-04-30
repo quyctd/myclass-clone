@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {% include "partial/meta-data.html" %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    {% include "partial/meta-data.html" %}
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
@@ -21,12 +22,12 @@
                     <li>
                         <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt="" width="100%">
                     </li>
-                    <li class="text-center my-2 font-weight-bold">Avat Ton</li>
+                    <li class="text-center my-2 font-weight-bold">{{ user.username }}</li>
                     <li>
-                        <a class="list-group-item border-0 list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">Profile</a>
+                        <a class="list-group-item border-0 list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">Thông tin cá nhân</a>
                     </li>
                     <li>
-                        <a class="list-group-item border-0 list-group-item-action" id="list-password-list" data-toggle="list" href="#list-password" role="tab">Change Password</a>
+                        <a class="list-group-item border-0 list-group-item-action" id="list-password-list" data-toggle="list" href="#list-password" role="tab">Cài đặt tài khoản</a>
                     </li>
                     <!-- <li>
                         <a class="list-group-item list-group-item-action" id="list-instructor-list" data-toggle="list" href="#list-instructor" role="tab" >Instructor Settings</a>

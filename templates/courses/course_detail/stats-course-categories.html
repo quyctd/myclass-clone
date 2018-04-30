@@ -1,19 +1,13 @@
 <section id="bright_course_category_widget-4" class="widget widget_bright_course_category_widget">
-    <h3 class="widget-title">Course Categories</h3>
+    <h3 class="widget-title">Thư viện danh mục</h3>
     <div class="ep_course_category_list bright-cat-list-desktop">
         <ul>
-            <li class="cat-item cat-item-164">
-                <a href="http://bright.wpbranch.com/course-category/apps-development/" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed.">
-                    <i class="fab fa-android mr-3"></i>Apps Development</a>
+            {% for cate in categories %}
+            <li class="cat-item">
+                <a href="http://bright.wpbranch.com/course-category/apps-development/" title="">
+                    <i class="fab fa-android mr-3"></i>{{cate.ten_danh_muc}}</a>
             </li>
-            <li class="cat-item cat-item-180">
-                <a href="http://bright.wpbranch.com/course-category/bachelors-programs/" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed.">
-                    <i class="fas fa-graduation-cap mr-2"></i>Bachelor's Programs</a>
-            </li>
-            <li class="cat-item cat-item-163">
-                <a href="http://bright.wpbranch.com/course-category/backend-programming/" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed.">
-                    <i class="fas fa-laptop mr-2"></i>Backend Programming</a>
-            </li>
+            {%endfor%}
             
         </ul>
     </div>

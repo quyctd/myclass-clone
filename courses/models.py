@@ -10,7 +10,7 @@ class Course(models.Model):
     ngay_tao = models.DateTimeField()
     mieu_ta = models.TextField()
     tags = TaggableManager()
-    students = models.ManyToManyField("auth.User", related_name='course')
+    students = models.ManyToManyField("auth.User", related_name='course', blank = True)
     
     def __str__(self):
         return self.ten_khoa_hoc

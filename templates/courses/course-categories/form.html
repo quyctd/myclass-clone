@@ -1,0 +1,28 @@
+<div class="well well-sm clear bright-course-navigations">
+    <form method="post" class="searchandfilter">
+        <div>
+            <ul>
+                <li>
+                    <select name="ofcourse_category" id="ofcourse_category" class="postform">
+                        <option value="0">Tất cả danh mục</option>
+                        {% for cate in categories %}
+                            <option class="level-0" {% if cate == category %} selected {% endif %}>
+                                {{cate.ten_danh_muc}}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </li>
+                <li>
+                    <select name="ofcourse_category" id="ofcourse_category" class="postform">
+                        <option value="0" selected>Sắp xếp theo</option>
+                        <option class="level-0">Mới nhất</option>
+                        <option class="level-0">Học Nhiều</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="submit" value="Tìm kiếm">
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
