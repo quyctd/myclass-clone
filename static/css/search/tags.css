@@ -1,6 +1,6 @@
 .widget.widget_tag_cloud a{
-    border-color: #cc232b;
-    background: #ff4f57;
+    border-color: #28a745;
+    background: #28a745;
     font-size: 14px !important;
     margin: 0 5px 8px 0;
     display: inline-block;
@@ -11,7 +11,7 @@
 }
 
 .widget.widget_tag_cloud a:hover{
-    background: rgb(204, 35, 43);
+    background: rgb(17, 138, 74);
     transition: all 0.5s;
     color: #fff;
 }

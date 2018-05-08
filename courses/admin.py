@@ -5,6 +5,7 @@ from .models import *
 class VideoInline(admin.TabularInline):
     model = Video
     extra = 1
+    fields = ('video_name', 'link_video')
 
 class CategoryInline(admin.TabularInline):
     model = Category.khoa_hoc.through
@@ -14,7 +15,7 @@ class CategoryInline(admin.TabularInline):
 
 class CourseAdmin(admin.ModelAdmin):
     inlines = [VideoInline, CategoryInline]
-    list_display = ("tac_gia", "ten_khoa_hoc", "ngay_tao",)
+    list_display = ("ten_khoa_hoc", "tac_gia", "ngay_tao",)
     list_filter = ("tac_gia", "ten_khoa_hoc", "ngay_tao")
     search_fields = ("tac_gia", "ten_khoa_hoc")
 

@@ -8,7 +8,6 @@ from user.forms import SignUpForm, TeacherForm
 
 def index(request):
     categories = Category.objects.all()
-    
     context = {
         "categories": categories,
     }
@@ -30,9 +29,9 @@ def signup(request):
 
 def teacher(request):
     if request.method == "POST":
-        form = TeacherForm(request.POST)
+        form = TeacherForm(request.POST, request.FILES)
         if form.is_valid():
-            print(form['base_info'])
+            
             form.save()
             return redirect('home')
     else:

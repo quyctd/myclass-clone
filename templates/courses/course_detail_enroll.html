@@ -22,10 +22,10 @@
   <!-- Header -->
   {% include "partial/header.html" %}
   <!-- Image Logo List Course -->
-  <div class="bright-page-title-area">
+  <div class="bright-page-title-area" style="background: url('/media/{{course.anh_cover}}') no-repeat; background-size: cover;">
     <div class="bright-page-title">
       <div class="container">
-        <h1 class="entry-title">Chi tiết khóa học</h1>
+        <h1 class="entry-title">Tiếp tục khóa học</h1>
       </div>
     </div>
     <div class="bright-breadcrumb-wrapper">
@@ -44,8 +44,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-8">
-        {% include "courses/course_detail/content_title.html" %}
-        {% include 'courses/course_detail/thumbnail.html' %}
+        {% include "courses/course_detail_enroll/course_progress.html" %}
         {% include 'courses/course_detail/main-content.html' %}
       </div>
       <div class="col-md-4">

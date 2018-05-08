@@ -13,7 +13,11 @@
                     <div class="course-detail-wrap">
                         <div class="course-content">
                             <h3>
-                                <a href="/course/{{course.id}}">{{course.ten_khoa_hoc|truncatewords:3}}</a>
+                                {% if course in user.course.all %}
+                                <a href="/course/{{course.id}}/enroll">{{course.ten_khoa_hoc|truncatewords:3}}</a>
+                                {% else %}
+                                    <a href="/course/{{course.id}}">{{course.ten_khoa_hoc|truncatewords:3}}</a>
+                                {% endif %}
                             </h3>
                             <div class="bright-course-meta">
                                 <span class="course-instructor">
@@ -22,7 +26,7 @@
                                     </a>
                                 </span>
                                 <span class="course-students" title="No student enrolled">
-                                    0 student
+                                    {{course.students.count}} học sinh
                                 </span>
                             </div>
                         </div>

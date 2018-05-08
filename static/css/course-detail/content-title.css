@@ -100,7 +100,7 @@ img {
     height: unset;
     line-height: 1.42857143;
     padding: 10px 30px;
-    background: #ff4f57;
+    background: #28a745;
 }
 
 .lp-button {
@@ -115,6 +115,6 @@ img {
 }
 
 .lp-button:hover {
-    background:#cc232b;
+    background:#007549;
     cursor: pointer;
 }

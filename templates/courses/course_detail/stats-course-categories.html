@@ -4,8 +4,8 @@
         <ul>
             {% for cate in categories %}
             <li class="cat-item">
-                <a href="http://bright.wpbranch.com/course-category/apps-development/" title="">
-                    <i class="fab fa-android mr-3"></i>{{cate.ten_danh_muc}}</a>
+                <a href="/course/categories/{{cate.id}}" title="{{cate.ten_danh_muc}}">
+                <i class="fab fa-android mr-3"></i>{{cate.ten_danh_muc}}</a>
             </li>
             {%endfor%}
             

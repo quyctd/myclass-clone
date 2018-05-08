@@ -13,16 +13,20 @@
                     <div class="course-detail-wrap">
                         <div class="course-content">
                             <h3>
+                                {% if course in user.course.all %}
+                                <a href="/course/{{course.id}}/enroll" alt="{course.ten_khoa_hoc}}">{{course.ten_khoa_hoc|truncatewords:2}}</a>
+                                {% else %}
                                 <a href="/course/{{course.id}}" alt="{course.ten_khoa_hoc}}">{{course.ten_khoa_hoc|truncatewords:2}}</a>
+                                {% endif %}
                             </h3>
                             <div class="bright-course-meta">
                                 <span class="course-instructor">
                                     <a href="">
-                                        <span>{{course.tac_gia.first_name}} {{course.tac_gia.last_name}}</span>
+                                        <span>{{course.tac_gia}}</span>
                                     </a>
                                 </span>
-                                <span class="course-students" title="No student enrolled">
-                                    0 student
+                                <span class="course-students">
+                                    {{course.students.count}} học sinh
                                 </span>
                             </div>
                         </div>

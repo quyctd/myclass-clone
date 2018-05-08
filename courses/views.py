@@ -1,26 +1,69 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Course, Category, Teacher
 from django.views.generic import DetailView
 from django.db.models import Q
 from taggit.models import Tag
+import datetime
 # Create your views here.
-
-
-class CourseDetailView(DetailView):
-    model = Course
 
 def courses_detail(request, pk):
     course = get_object_or_404(Course, pk = pk)
-    suggest_course = Course.objects.all().exclude(pk = pk)[:5]
-    teachers = Teacher.objects.all()[:5]
-    categories = Category.objects.all()[:5]
+    time = datetime.timedelta(seconds = 0)
+    for video in course.video.all():
+        time += video.duration
+    m, s = divmod(time.seconds, 60)
+    course.views += 1
+    course.save()
+    if request.method == 'GET':
+        suggest_course = Course.objects.all().exclude(pk = pk)[:5]
+        teachers = Teacher.objects.all()[:5]
+        categories = Category.objects.all()[:5]
+        context = {
+            "course" : course,
+            "suggest_course" : suggest_course,
+            "teachers" : teachers,
+            "categories" : categories,
+            "minutes":m,
+            "seconds": s
+        }
+        return render(request, "courses/course_detail.html", context=context)
+    elif request.method == "POST":
+        user = request.user
+        course.students.add(user)
+        return redirect(courses_detail_enroll, pk=pk)
+
+def courses_detail_enroll(request, pk):
+    course = get_object_or_404(Course, pk=pk)
+    time = datetime.timedelta(seconds=0)
+    for video in course.video.all():
+        time += video.duration
+    m, s = divmod(time.seconds, 60)
+    course.views += 1
+    course.save()
+    if request.method == "GET":
+        suggest_course = Course.objects.all().exclude(pk=pk)[:5]
+        teachers = Teacher.objects.all()[:5]
+        categories = Category.objects.all()[:5]
+        context = {
+            "course": course,
+            "suggest_course": suggest_course,
+            "teachers": teachers,
+            "categories": categories,
+            "minutes":m,
+            "seconds":s
+        }
+        return render(request, "courses/course_detail_enroll.html", context=context)
+    elif request.method == 'POST':
+        return redirect(courses_learn, pk=pk)
+
+def courses_learn(request, pk):
+    course = get_object_or_404(Course, pk=pk)
+    course.views += 1
+    course.save()
     context = {
-        "course" : course,
-        "suggest_course" : suggest_course,
-        "teachers" : teachers,
-        "categories" : categories
+        "course": course,
     }
-    return render(request, "courses/course_detail.html", context=context)
+    return render(request, "courses/course_learn.html", context=context)
 
 def courses_list(request):
     courses = Course.objects.all()

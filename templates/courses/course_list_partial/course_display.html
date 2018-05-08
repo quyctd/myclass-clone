@@ -1,82 +1,50 @@
-<div id="content" class="site-content">
-    <div class="bright-main-content-inner">
-        <div id="primary" class="content-area">
-            <main id="main" class="site-main">
-                <article class="page hentry">
-                    <div class="entry-content">
-                        <div class="vc_row">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="wpb_column vc_column_container vc_col-sm-12">
-                                        <div class="vc_column-inner ">
-                                            <div class="wpb_wrapper"> 
-                                                <div class="bright-course-list_lg">
-                                                    {% for course in courses %}
-                                                    <div class="bright-course-item hentry course">
-                                                        <div class="courses-wrap row">
-                                                            <div class="bright-course-thumb col-md-4">
-                                                                <div class="thumb">
-                                                                    <img width="370" height="240" src="../media/{{course.anh_cover}}" alt="Computer Science" style="object-fit:cover;">
-                                                                        <div class="courses-price">
-                                                                            <p class="years">Duration: 10 week</p> <span class="price">$79.00</span> 
-                                                                        </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="bright-course-details col-md-8">
-                                                                <div class="course-detail-wrap">
-                                                                    <div class="course-content">
-                                                                        <h3><a href="/course/{{course.id}}/">{{course.ten_khoa_hoc}}</a></h3>
-                                                                        <div class="bright-course-meta"> 
-                                                                            <span class="course-instructor">
-                                                                                <a href=""><i class="fas fa-user"></i> <span>{{ course.tac_gia }}</span> </a>
-                                                                            </span>
-                                                                            <i class="fas fa-users"></i>
-                                                                            <span class="course-students" title="No student enrolled">
-                                                                            0 student
-                                                                            </span>
-                                                                            <span class="meta-course-rating"> 
-                                                                            <div class="course-review">
-                                                                                <label>Review</label>
-                                                                                    <div class="value">
-                                                                                        <div class="bright-review-stars-wrapper">
-                                                                                            <ul class="bright-review-stars">
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                            </ul>
-                                                                                            <ul class="bright-review-stars fill" style="width: 0%">
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                                <li><span class="fas fa-star"></span></li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <span>(0 review)</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </span>
-                                                                        </div>
-                                                                        <p>{{ course.mieu_ta|truncatechars:300 }}</p>
-                                                                        <a class="btn btn-common btn-sm" href="/course/{{course.id}}/">Details</a> 
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                     </div>
-                                                    {%endfor%}
+<article class="hentry">
+    <div class="entry-content">
+        <div class="vc_row">
+            <div class="container">
+                <div class="row">
+                    <div class=" vc_column_container col-sm-12">
+                        <div class="vc_column-inner">
+                            <div class="bright-course-list_lg">
+                                {% for course in courses %}
+                                <div class="bright-course-item hentry">
+                                    <div class="courses-wrap row">
+                                        <div class="bright-course-thumb col-md-4">
+                                            <div class="thumb">
+                                                <img width="370" height="240" src="../media/{{course.anh_cover}}" alt="Computer Science" style="object-fit:cover;">
+                                            </div>
+                                        </div>
+                                        <div class="bright-course-details col-md-8">
+                                            <div class="course-detail-wrap">
+                                                <div class="course-content">
+                                                    <h3><a href="/course/{{course.id}}/">{{course.ten_khoa_hoc}}</a></h3>
+                                                    <div class="bright-course-meta"> 
+                                                        <span class="course-instructor">
+                                                            <a href=""><i class="fas fa-user"></i> <span>{{ course.tac_gia }}</span> </a>
+                                                        </span>
+                                                        <i class="fas fa-users"></i>
+                                                        <span class="course-students" title="No student enrolled">
+                                                        {{course.students.count}} học sinh
+                                                        </span>
+                                                        
+                                                    </div>
+                                                    <p>{{ course.mieu_ta|truncatechars:300 }}</p>
+                                                    {% if course in user.course.all %}
+                                                    <a class="btn btn-common btn-sm rounded-0 px-4" href="/course/{{course.id}}/enroll/">Xem chi tiết</a>
+                                                    {% else %}
+                                                        <a class="btn btn-common btn-sm rounded-0 px-4" href="/course/{{course.id}}/">Xem chi tiết</a>
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    </div>
+                                {%endfor%}
                             </div>
                         </div>
                     </div>
-                 </article>
-            </main>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</article>

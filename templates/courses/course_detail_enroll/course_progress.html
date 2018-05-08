@@ -1,0 +1,16 @@
+<div class="bright-single-course-header clearfix course-summary bg-white" style="margin-bottom:20px;">
+    <h1 itemprop="name" class="entry-title">{{course.ten_khoa_hoc}}</h1>
+    <div class="course-payment">
+        <div class="lp-course-buttons">
+            <form name="enroll-course" class="enroll-course" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" class='lp-button button button-enroll-course text-light mb-3'>Học tiếp bài</button>
+            </form>
+        </div>
+    </div>
+    <h4>Tiến độ học</h4>
+    <div class="progress mb-3" style="height:30px;">
+        
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%; " aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/16</div>
+    </div>
+</div>

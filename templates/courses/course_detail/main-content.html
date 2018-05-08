@@ -26,26 +26,32 @@
                     <h3>Số liệu khóa học</h3>
                     <ul>
                         <li>
-                            <i class="fas fa-users mr-2 text-danger"></i>
+                            <i class="fas fa-users mr-2 text-success"></i>
                             <span class="course-info-label">Học viên</span>
                             <span class="course-info-value">
-                                <span class="course-students">111 học viên</span>
+                                <span class="course-students">{{course.students.count}} học viên</span>
                             </span>
                         </li>
                         <li>
-                            <i class="far fa-clock mr-2 text-danger"></i>
+                            <i class="far fa-clock mr-2 text-success"></i>
                             <span class="course-info-label">Thời lượng</span>
-                            <span class="course-info-value">12 giờ</span>
+                            <span class="course-info-value">
+                                {% if seconds > 30 %}
+                                    {{minutes|add:1}} phút
+                                {% else %}
+                                    {{minutes}} phút
+                                {%endif%}
+                            </span>
                         </li>
                         <li>
-                            <i class="fas fa-level-up-alt mr-2 text-danger"></i>
+                            <i class="fas fa-level-up-alt mr-2 text-success"></i>
                             <span class="course-info-label">Cấp độ</span>
-                            <span class="course-info-value">Tất cả</span>
+                            <span class="course-info-value">{{course.level}}</span>
                         </li>
                         <li>
-                            <i class="fas fa-language mr-2 text-danger"></i>
+                            <i class="fas fa-language mr-2 text-success"></i>
                             <span class="course-info-label">Ngôn ngữ</span>
-                            <span class="course-info-value">Tiếng việt</span>
+                            <span class="course-info-value">{{course.language}}</span>
                         </li>
                     </ul>
                 </div>
@@ -53,36 +59,28 @@
         </div>
         <div class="tab-pane course-tab-panel fade" id="pills-curriculum" role="tabpanel" >
             <div>
-                <hr style="border:1px solid red; margin:0px">
+                <hr style="border:1px solid #28a745; margin:0px">
                 <ul class="curriculum-sections">
+                    {% for video in course.video.all %}
                     <li class="p-4 curriculum-border">
                         <i class="fab fa-youtube text-danger"></i>
-                        <span class="course-info-label">01. Intro to Web development & PHP, Basic syntax</span>
+                        <span class="course-info-label">{{forloop.counter}}. {{video.video_name}}</span>
+                        {% if course in user.course.all %}
+                            <div class="course-item-meta">
+                                <span class="item-meta duration">{{video.duration}}
+                                    <i class="fas fa-unlock"></i>
+                                </span>
+                            </div>
+                        {% else %}
                         <div class="course-item-meta">
-                            <span class="item-meta duration">30 min<i class="ml-2 fas fa-lock"></i></span>
-                            
-                        </div>
-                    </li>
-                    <li class="p-4 curriculum-border">
-                        <i class="fab fa-youtube text-danger"></i>
-                        <span class="course-info-label">02. Variables, Data types and Operators</span>
-                        <div class="course-item-meta">
-                            <span class="item-meta duration">30 min
+                            <span class="item-meta duration">{{video.duration}}
                                 <i class="ml-2 fas fa-lock"></i>
                             </span>
-                    
                         </div>
+                        {% endif %}
                     </li>
-                    <li class="p-4 curriculum-border">
-                        <i class="fab fa-youtube text-danger"></i>
-                        <span class="course-info-label">03. Conditions & Control structures</span>
-                        <div class="course-item-meta">
-                            <span class="item-meta duration">30 min
-                                <i class="ml-2 fas fa-lock"></i>
-                            </span>
+                    {% endfor %}
                     
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -90,12 +88,11 @@
                 <div class="course-author">
                     <h3>Giảng viên</h3>
                     <p class="author-name">
-                        <img src="http://bright.wpbranch.com/wp-content/uploads/2017/07/1920-copy-150x150.jpg" width="96" height="96" alt="Jen Maroney">
+                        <img src="/media/{{course.tac_gia.avatar}}" width="96" height="96" alt="Jen Maroney">
                         <a href="">{{course.tac_gia}}</a>
                     </p>
                     <div class="author-bio">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                        text ever since the 1500s. 
+                        {{course.tac_gia.biography}} 
                     </div>
                 </div>
         </div>

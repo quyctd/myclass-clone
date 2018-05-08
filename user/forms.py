@@ -15,4 +15,4 @@ class SignUpForm(UserCreationForm):
 class TeacherForm(forms.ModelForm):
     class Meta:
         model = Teacher
-        fields = ('first_name', 'last_name', 'base_info')
+        fields = ('__all__')

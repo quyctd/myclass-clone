@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+  {% include "partial/meta-data.html" %}
+  <link rel="stylesheet" href="/static/css/list_course.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>List course</title>
+</head>
+
+<body class='bright-page-layout-full-width' style="background: #f3f3f3"> 
+  <!-- Header -->
+  {% include "partial/header.html" %}
+  <!-- Image Logo List Course -->
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="w-100 bg-success py-2 px-3 mb-2">
+                    <h5 class="text-light">{{course.ten_khoa_hoc}}</h5>
+                </div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                        {% for video in course.video.all %}
+                            {% if forloop.counter == 1%}
+                                <div class="carousel-item active">
+                                    <iframe width="100%" height="470px" src="https://www.youtube.com/embed/{{video.video_id}}" frameborder="0" allow="autoplay; encrypted-media"
+                                        allowfullscreen></iframe>
+                                </div>
+                            {% else %}
+                                <div class="carousel-item">
+                                    <iframe width="100%" height="470px" src="https://www.youtube.com/embed/{{video.video_id}}" frameborder="0" allow="autoplay; encrypted-media"
+                                    allowfullscreen></iframe>
+                                </div>
+                            {%endif%}
+                        {% endfor %}
+                        
+                    </div>
+                    
+                </div>
+                <a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="prev">Previous</a>
+                <a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="next">Next</a>
+            </div>
+            <div class="col-md-4">
+                <div class="w-100 bg-success py-2 px-3 mb-2">
+                    <h5 class="text-light"><i class="fas fa-align-left mr-2"></i>Đề cương</h5>
+                </div>
+                <div class='p-2' style="height: 500px; overflow: scroll;">
+                    {% for video in course.video.all %}
+                        <div class="border p-3 w-100">
+                            <a data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="w-100" href="">Bài {{forloop.counter}}: {{video.video_name}}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+                        
+  <!-- footer -->
+  {% include "partial/footer.html" %}
+
+</body>
+</html>

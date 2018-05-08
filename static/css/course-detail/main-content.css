@@ -3,7 +3,7 @@
 }
 
 .course-tabs {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     padding: 0;
     box-shadow: 0 2px 7px rgba(0, 0, 0, .15);
     background: #fff;
@@ -13,12 +13,12 @@
     padding: 0;
     margin: 0;
     border-bottom: 5px solid;
-    border-color: #ff4f57;
+    border-color: #28a745;
 }
 
 .nav-pills .nav-link.active {
     color: #fff;
-    background: #ff4f57;
+    background: #28a745;
     border:none;
 }
 
