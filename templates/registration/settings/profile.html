@@ -1,28 +1,30 @@
 <h3 class="text-center">Thông tin cá nhân</h3>
 <p class="text-center">Thêm thông tin về bản thân bạn và chia sẻ trên hồ sơ của bạn.</p>
 <hr>
-<form style="margin: 0 100px;">
+<form method='POST' style="margin: 0 100px;" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="First Name" value="{{user.first_name}}">
+        <input name='first_name' type="text" class="form-control" placeholder="First Name" value="{{user.first_name}}">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Last Name">
+        <input name='last_name' type="text" class="form-control" placeholder="Last Name" value="{{user.last_name}}">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Head Line">
+        <input name='headline' type="text" class="form-control" placeholder="Head Line" value='{{user.userprofile.headline}}'>
         <small id="emailHelp" class="form-text text-muted">Thêm chuyên ngành của bạn ví dụ như: 'Kỹ sư' hoặc 'Kiến trúc sư.'</small>
     </div>
     <div class="form-group">
         <label>Tiểu sử:</label>
-        <textarea type="text" class="form-control" rows="4"></textarea>
+        <textarea name='biography' type="text" class="form-control" rows="4" >{{user.userprofile.biography}}</textarea>
     </div>
     <hr>
     <div class="form-group">
         <label for="exampleFormControlFile1">Đổi avatar:</label>
-        <input type="file" class="form-control-file">
+        <input name='avatar' type="file" class="form-control-file" value='/media/{{user.userprofile.avatar}}'>
     </div>
     <hr>
     <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-primary px-5">Lưu</button>
     </div>
+    
 </form>

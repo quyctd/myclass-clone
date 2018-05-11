@@ -3,7 +3,12 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from courses.models import *
-from user.forms import SignUpForm, TeacherForm
+from django.contrib.auth.models import User
+from .models import UserProfile
+from user.forms import SignUpForm, TeacherForm, UserProfileForm
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 # Create your views here.
 
 def index(request):
@@ -41,7 +46,42 @@ def teacher(request):
 
 def setting(request):
     user = request.user
-    context = {
-        "user": user,
-    }
-    return render(request, "registration/setting.html")
+    if request.method == "GET":
+        form = PasswordChangeForm(request.user)
+        return render(request, "registration/setting.html", {'form':form})
+    elif request.method == "POST":
+      
+        first_name = request.POST.get('first_name', None)
+        last_name = request.POST.get('last_name', None)
+        headline = request.POST.get('headline', None)
+        bio = request.POST.get('biography', None)
+        if 'avatar' in request.FILES:
+            avatar = request.FILES['avatar']
+        else:
+            avatar = None
+        
+        try:
+            userprofile = UserProfile.objects.get(user = user)
+        except UserProfile.DoesNotExist:
+            userprofile = UserProfile.objects.create(user=user)
+        
+        if headline:
+            userprofile.headline = headline
+        if bio:
+            userprofile.biography = bio
+        if avatar:
+            userprofile.avatar = avatar
+        if first_name:
+            user.first_name = first_name
+        if last_name:
+            user.last_name = last_name
+        userprofile.save()
+        user.save()
+        
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            return redirect('change_password')
+
+        return render(request, 'registration/setting.html', {'form': form})

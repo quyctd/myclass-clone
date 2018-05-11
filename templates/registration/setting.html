@@ -20,7 +20,12 @@
             <div class="col-3">
                 <ul class="list-group list-unstyled" id="list-tab" role="tablist">
                     <li>
-                        <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt="" width="100%">
+                        {% if user.userprofile.avatar %}
+                            <img class="rounded-circle" src="/media/{{user.userprofile.avatar}}" alt="" width="100%">
+                        {% else %}
+                            <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt=""
+                                width="100%">
+                        {% endif %}
                     </li>
                     <li class="text-center my-2 font-weight-bold">{{ user.username }}</li>
                     <li>
