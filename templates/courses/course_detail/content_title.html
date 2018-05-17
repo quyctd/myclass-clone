@@ -1,27 +1,6 @@
 <div class="bright-single-course-header clearfix course-summary bg-white" style="margin-bottom:20px;">
     <h1 itemprop="name" class="entry-title">{{course.ten_khoa_hoc}}</h1>
-    <div class="course-meta">
-        <div class="course-author">
-            <img src="/media/{{ course.tac_gia.avatar }}" width="40" height="40" alt="{{course.tac_gia}}">
-            <div class="author-contain">
-                <label>Giảng viên</label>
-                <div class="value">
-                    <i>{{ course.tac_gia }}</i>
-                </div>
-            </div>
-        </div>
-        <div class="course-categories">
-            <label>Danh mục</label>
-            <div class="value">
-                <span class="cat-links">
-                    <a href="/course/categories/{{course.categories.all.0.id}}">
-                        {{course.categories.all.0.ten_danh_muc}}
-                    </a>
-                </span>
-            </div>
-        </div>
-        
-    </div>
+    
     <div class="course-payment">
         <div class="course-price">
             <span class="price">Miễn phí</span>

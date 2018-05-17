@@ -14,14 +14,6 @@
     
     <!-- Main Setting -->
     <div class="container border p-3 bg-white mt-3">
-        {% if success %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Mật khẩu của bạn đã được cập nhật thành công!</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
         <div class="row">
             <div class="col-3">
                 <ul class="list-group list-unstyled" id="list-tab" role="tablist">
@@ -35,26 +27,25 @@
                     </li>
                     <li class="text-center my-2 font-weight-bold">{{ user.username }}</li>
                     <li>
-                        <a class="list-group-item btn-success border-0 list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">Thông tin cá nhân</a>
+                        <a class="list-group-item btn-success border-0 list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">Thông tin cá nhân</a>
                     </li>
                     <li>
-                        <a class="list-group-item btn-success border-0 list-group-item-action" id="list-password-list" data-toggle="list" href="#list-password"
+                        <a class="list-group-item btn-success border-0 list-group-item-action active" id="list-password-list" data-toggle="list" href="#list-password"
                             role="tab">Cài đặt tài khoản</a>
                     </li>
-                    <!-- <li>
-                        <a class="list-group-item list-group-item-action" id="list-instructor-list" data-toggle="list" href="#list-instructor" role="tab" >Instructor Settings</a>
-                    </li> -->
+                    
                 </ul>
             </div>
             <div class="col-9">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-profile" role="tabpanel">
+                    <div class="tab-pane fade" id="list-profile" role="tabpanel">
                         {% include "registration/settings/profile.html" %}
                     </div>
-                <div class="tab-pane fade" id="list-password" role="tabpanel">
+                <div class="tab-pane fade show active" id="list-password" role="tabpanel">
+                        
+                        
                          {% include "registration/settings/password.html" %}
                     </div>
-                    <!-- <div class="tab-pane fade" id="list-instructor" role="tabpanel">teacher</div> -->
                 </div>
             </div>
         </div>

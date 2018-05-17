@@ -13,7 +13,7 @@
         </a>
         <div class="dropdown-menu">
           {% for cate in categories %}
-            <a class="dropdown-item" href="/course/categories/{{cate.id}}">{{cate.ten_danh_muc}}</a>
+            <a class="dropdown-item" href="/course/categories/{{cate.id}}/">{{cate.ten_danh_muc}}</a>
           {% endfor %}
         </div>
       </li>
@@ -28,17 +28,9 @@
     </form>
     <ul class="navbar-nav">
       {% if user.is_authenticated %}
-        {% if user.teacher %}
-          <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Đăng Khóa Học</a>
-          </li>
-        {% else %}
-          <li class="nav-item mx-3">
-            <a class="nav-link" href="/teaching/">Trở thành Giảng Viên</a>
-          </li>
-        {% endif %}
+        
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#">Khóa Học Của Tôi</a>
+          <a class="nav-link" href="/mycourses/">Khóa Học Của Tôi</a>
         </li>
         <li class="nav-item ml-3">
           <div class="dropdown">
@@ -47,12 +39,11 @@
                 <img class="rounded-circle" src="/media/{{user.userprofile.avatar}}" alt=""
                 width="33px">
             {% else %}
-              <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt=""
-            
+              <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt="" width="33px">
             {% endif %}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="/settings" class="dropdown-item">Cài đặt</a>
+              <a href="/settings/" class="dropdown-item">Cài đặt</a>
               <a class="dropdown-item text-muted" href="/logout/">Đăng xuất</a>
             </div>
           </div>
@@ -62,9 +53,9 @@
         
       
         <li class="nav-item">
-          <a class="nav-link" href="/login">Đăng nhập</a>
+          <a class="nav-link" href="/login/">Đăng nhập</a>
         </li>
-        <li><a class="nav-link sign-up" href="/signup">Đăng ký</a></li>
+        <li><a class="nav-link sign-up" href="/signup/">Đăng ký</a></li>
       {% endif %}
     </ul>
   </div>

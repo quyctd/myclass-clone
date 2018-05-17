@@ -132,3 +132,4 @@ def search(request):
         "tags": tags
     }
     return render(request, "search.html", context=context)
+

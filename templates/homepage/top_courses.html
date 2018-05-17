@@ -9,7 +9,9 @@
         <img class="card-img-top" src="/media/{{ course.anh_cover }}" alt="{{course.ten_khoa_hoc}}" height="122px" style="object-fit:cover;">
         <div class="card-body card-body-override">
           <p class="title_course">{{course.ten_khoa_hoc}}</p>
-          <p class="text-secondary">{{course.tac_gia}}</p>
+          <p class="text-secondary">
+            <i class="fas fa-users"></i> {{course.students.count}} học sinh
+          </p>
           {% if course in user.course.all %}
             <a href="/course/{{course.id}}/enroll" class="btn btn-success btn-sm float-right rounded-0">Ghi danh</a>
           {% else %}

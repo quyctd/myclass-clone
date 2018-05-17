@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-9">
                 <h3>{{ course.ten_khoa_hoc }}</h3>
-                <small>{{course.tac_gia}}</small>
+                <small><i class="fas fa-users"></i> {{course.students.count}} học sinh</small>
                 <p>{{course.mieu_ta|truncatechars:100}}</p>
                 {% if course in user.course.all %}
                 <a href="/course/{{course.id}}/enroll/"><i class="fas fa-angle-double-right mr-1"></i>Xem chi tiết</a>

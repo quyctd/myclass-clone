@@ -8,7 +8,9 @@
                     <p class="title_course" style="margin:0; height:auto; min-height:auto;">
                         {{ course.ten_khoa_hoc|truncatewords:6 }}
                     </p>
-                    <p class="text-secondary">{{ course.tac_gia.first_name }} {{ course.tac_gia.last_name }}</p>
+                    <p class="text-secondary">
+                        <i class="fas fa-users"></i> {{course.students.count}} học sinh
+                    </p>
                     {% if course in user.course.all %}
                     <a href="/course/{{course.id}}/enroll" class="btn btn-success btn-sm float-right">Chi tiết</a>
                     {% else %}
