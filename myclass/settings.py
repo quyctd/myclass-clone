@@ -31,7 +31,7 @@ SECRET_KEY = 'fbx!+93@sqng#o#*(47=43bov0s90keqtk#l+pj*abntdx2_8d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "myclassvn.herokuapp.com"]
 
 
 # Application definition
