@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Course, Category, Teacher
+from .models import Course, Category
 from django.views.generic import DetailView
 from django.db.models import Q
 from taggit.models import Tag
@@ -18,12 +18,10 @@ def courses_detail(request, pk):
     course.save()
     if request.method == 'GET':
         suggest_course = Course.objects.all().exclude(pk = pk)[:5]
-        teachers = Teacher.objects.all()[:5]
         categories = Category.objects.all()[:5]
         context = {
             "course" : course,
             "suggest_course" : suggest_course,
-            "teachers" : teachers,
             "categories" : categories,
             "minutes":m,
             "seconds": s
@@ -44,12 +42,10 @@ def courses_detail_enroll(request, pk):
     course.save()
     if request.method == "GET":
         suggest_course = Course.objects.all().exclude(pk=pk)[:5]
-        teachers = Teacher.objects.all()[:5]
         categories = Category.objects.all()[:5]
         context = {
             "course": course,
             "suggest_course": suggest_course,
-            "teachers": teachers,
             "categories": categories,
             "minutes":m,
             "seconds":s
@@ -64,6 +60,7 @@ def courses_learn(request, pk):
     course.save()
     context = {
         "course": course,
+        "categories": Category.objects.all(),
     }
     return render(request, "courses/course_learn.html", context=context)
 
@@ -71,13 +68,14 @@ def courses_list(request):
     courses = Course.objects.all()
     context = {
         "courses": courses,
+        "categories": Category.objects.all(),
+
     }
     return render(request, 'courses/list_all_course.html', context=context)
 
 def categories(request, pk):
     all_cate = Category.objects.all()
     new_courses = Course.objects.all().order_by("-ngay_tao")[:5]
-    teachers = Teacher.objects.all()[:5]
 
     if request.method == 'GET':
         cate = get_object_or_404(Category, pk = pk)
@@ -87,7 +85,6 @@ def categories(request, pk):
             "category" : cate,
             'courses': courses,
             "new_courses": new_courses,
-            "teachers" : teachers
         }
         return render(request, "courses/course_categories.html", context = context)
 
@@ -107,7 +104,6 @@ def categories(request, pk):
             "category": cate,
             'courses': courses,
             "new_courses": new_courses,
-            "teachers": teachers
         }
         return render(request, "courses/course_categories.html", context=context)
 

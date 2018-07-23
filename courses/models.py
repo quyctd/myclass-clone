@@ -1,12 +1,10 @@
 from django.db import models
 from taggit.managers import TaggableManager
-from user.models import Teacher
 import datetime
 from django.db.models.signals import pre_save
 # Create your models here.
 
 class Course(models.Model):
-    tac_gia = models.ForeignKey(Teacher, on_delete= models.CASCADE)
     ten_khoa_hoc = models.CharField(max_length = 255)
     anh_cover = models.FileField(upload_to = "cover/")
     ngay_tao = models.DateTimeField(default = datetime.datetime.now())
@@ -15,7 +13,7 @@ class Course(models.Model):
     students = models.ManyToManyField("auth.User", related_name='course', blank = True)
     views = models.IntegerField(default = 0)
     LANGUAGE_CHOICES = (
-        ("Việt Nam", "VN"),
+        ("Tiếng Việt", "VN"),
         ("Tiếng Anh", "EN")
     )
     language = models.CharField(

@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from courses.models import *
 from django.contrib.auth.models import User
 from .models import UserProfile
-from user.forms import SignUpForm, TeacherForm, UserProfileForm
+from user.forms import SignUpForm, UserProfileForm
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.password_validation import validate_password
@@ -32,18 +32,6 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'uform': form})
-
-def teacher(request):
-    if request.method == "POST":
-        form = TeacherForm(request.POST, request.FILES)
-        if form.is_valid():
-            
-            form.save()
-            return redirect('home')
-    else:
-        user = request.user
-        form = TeacherForm(initial={'base_info': user})
-    return render(request, 'registration/teaching.html', {'form':form})
 
 def setting(request):
     user = request.user
@@ -86,13 +74,20 @@ def setting(request):
                     request, 'Your password was successfully updated!')
                 return render(request, 'registration/setting.html', {'form': form, 'success': True})
 
-    return render(request, 'registration/setting_fail.html', {'form':form})
+    context = {
+        'form':form,
+        "categories": Category.objects.all(),
+
+    }
+    return render(request, 'registration/setting_fail.html', context = context)
 
 
 def my_course(request):
     user = request.user
     courses = user.course.all()
     context = {
-        'courses': courses
+        'courses': courses,
+        "categories": Category.objects.all(),
+
     }
     return render(request, "courses/mycourse.html", context = context)

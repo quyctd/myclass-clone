@@ -20,7 +20,6 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from courses import views as crs_views
-from jet.dashboard.dashboard_modules import google_analytics_views
 
 admin.autodiscover()
 
@@ -48,7 +47,6 @@ urlpatterns = [
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
