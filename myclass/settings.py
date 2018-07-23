@@ -162,3 +162,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
 FILE_UPLOAD_MAX_MEMORY_SIZE = 2000000000
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
