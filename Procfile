@@ -1,1 +1,1 @@
-web: gunicorn oilDev.wsgi --log-file -
+web: gunicorn myclass.wsgi --log-file -
