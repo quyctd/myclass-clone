@@ -4,7 +4,6 @@ django-jet==1.0.7
 django-taggit==0.22.2
 google-api-python-client==1.6.5
 Jinja2==2.9.6
-opencv-contrib-python==3.4.0.12
 Pillow==4.2.1
 pymongo==3.5.1
 social-auth-app-django==2.1.0
@@ -13,6 +12,8 @@ urllib3==1.22
 virtualenv==15.1.0
 virtualenvwrapper-win==1.2.5
 youtube-dl==2017.12.31
+python-decouple
+dj-database-url
 gunicorn
 bleach
 whitenoise
