@@ -18,4 +18,4 @@ gunicorn
 bleach
 whitenoise==3.3.0
 Markdown
-psycopg2
+psycopg2-binary
