@@ -18,3 +18,4 @@ gunicorn
 bleach
 whitenoise
 Markdown
+psycopg2
