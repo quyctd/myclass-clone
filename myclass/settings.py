@@ -14,7 +14,6 @@ try:
 except ImportError:
     from ConfigParser import RawConfigParser
 import os
-from decouple import config
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,7 +27,7 @@ config = RawConfigParser()
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'fbx!+93@sqng#o#*(47=43bov0s90keqtk#l+pj*abntdx2_8d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,15 +86,11 @@ TEMPLATES = [
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
-        dj_database_url.config(
-            default=config('DATABASE_URL')
-        )
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    
 }
 
 
@@ -170,3 +165,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 FILE_UPLOAD_MAX_MEMORY_SIZE = 2000000000
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
