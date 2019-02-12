@@ -16,6 +16,6 @@ python-decouple
 dj-database-url
 gunicorn
 bleach
-whitenoise
+whitenoise==3.3.0
 Markdown
 psycopg2
