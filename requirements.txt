@@ -1,7 +1,7 @@
 Django==2.1.7
-django-ckeditor==5.4.0
-django-jet==1.0.7
-django-taggit==0.22.2
+django-ckeditor==5.6.1
+django-jet==1.0.8
+django-taggit==0.24.0
 google-api-python-client==1.6.5
 Jinja2==2.9.6
 Pillow==5.0.0
@@ -11,7 +11,7 @@ social-auth-core==1.7.0
 urllib3==1.23
 virtualenv==15.1.0
 virtualenvwrapper-win==1.2.5
-youtube-dl==2017.12.31
+youtube-dl==2019.2.18
 python-decouple
 dj-database-url
 gunicorn
@@ -19,3 +19,4 @@ bleach
 whitenoise==3.3.0
 Markdown
 psycopg2-binary
+cloudinary==5.1.2

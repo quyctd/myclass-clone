@@ -8,10 +8,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
-from .forms import SignUpForm, UserProfileForm
+from .forms import *
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.password_validation import validate_password
+from .tools import pre_upload_avatar_image
 # Create your views here.
 
 def courses_detail(request, pk):
@@ -172,16 +173,20 @@ def setting(request):
                 avatar = request.FILES['avatar']
             else:
                 avatar = None
-            try:
-                userprofile = UserProfile.objects.get(user = user)
-            except UserProfile.DoesNotExist:
-                userprofile = UserProfile.objects.create(user=user)
+
+            print(avatar)
+            
+            
+            userprofile = UserProfile.objects.filter(user = request.user).first()
+            if userprofile == None:
+                userprofile = UserProfile.objects.create(user=request.user, avatar = avatar, headline = "", biography = "")
             if headline:
                 userprofile.headline = headline
             if bio:
                 userprofile.biography = bio
             if avatar:
                 userprofile.avatar = avatar
+                pre_upload_avatar_image(None, userprofile)
             if first_name:
                 user.first_name = first_name
             if last_name:

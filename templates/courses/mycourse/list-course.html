@@ -3,7 +3,7 @@
         {% for course in courses %}
         <div class="col-md-3">
             <div class="card card-change">
-                <img class="card-img-top" src="/media/{{ course.anh_cover }}" alt="{{course.ten_khoa_hoc}}" height="122px" style="object-fit:cover;">
+                <img class="card-img-top" src="{{course.cover_link}}" alt="{{course.ten_khoa_hoc}}" height="122px" style="object-fit:cover;">
                 <div class="card-body card-body-override">
                     <p class="title_course">{{course.ten_khoa_hoc}}</p>
                     <p class="text-secondary">{{course.tac_gia}}</p>

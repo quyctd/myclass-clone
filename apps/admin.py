@@ -22,11 +22,17 @@ class CourseAdmin(admin.ModelAdmin):
     inlines = [VideoInline, CategoryInline]
     list_display = ("ten_khoa_hoc", "ngay_tao")
     list_filter = ("ten_khoa_hoc", "ngay_tao")
+    readonly_fields = ('cover_link',)
+    fields = ("ten_khoa_hoc", "anh_cover", "cover_link", "ngay_tao", "mieu_ta",  "tags", "language", "level")
     search_fields = ( "ten_khoa_hoc",)
-    exclude = ('views','students',)
+    exclude = ('views','students')
+
+class UserProfileAdmin(admin.ModelAdmin):
+    readonly_fields = ("avatar_link",)
+    fields = ("user", "avatar", "avatar_link", "headline", "biography")
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Video)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(UserProfile)
+admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.site_header = "ADMIN SITE"

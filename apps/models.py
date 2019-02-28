@@ -4,12 +4,14 @@ import datetime
 from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 from django.utils import timezone
+from .tools import pre_upload_cover_course, pre_upload_avatar_image
 
 # Create your models here.
 
 class Course(models.Model):
     ten_khoa_hoc = models.CharField(max_length = 255)
     anh_cover = models.FileField(upload_to = "cover/")
+    cover_link = models.CharField(default = "Link is empty", max_length = 1024, blank = True)
     ngay_tao = models.DateTimeField(default = timezone.now)
     mieu_ta = models.TextField()
     tags = TaggableManager()
@@ -30,6 +32,9 @@ class Course(models.Model):
         max_length=64, choices=LEVEL_CHOICES, default=LEVEL_CHOICES[0])
     def __str__(self):
         return self.ten_khoa_hoc
+
+pre_save.connect(pre_upload_cover_course, sender=Course)
+
 
 class Video(models.Model):
     khoa_hoc = models.ForeignKey(Course, related_name= "video", on_delete= models.CASCADE)
@@ -64,9 +69,12 @@ class Category(models.Model):
 
 class UserProfile(models.Model):
     user   = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    avatar = models.ImageField(upload_to="user/")
-    headline = models.CharField(max_length = 255)
-    biography = models.TextField()
+    avatar = models.ImageField(upload_to="user/", blank = True)
+    avatar_link = models.CharField(default = "Link is empty", max_length = 1024, blank = True)
+    headline = models.CharField(max_length = 255, blank = True)
+    biography = models.TextField(blank = True)
 
     def __str__(self):
         return self.user.username
+
+pre_save.connect(pre_upload_avatar_image, sender=UserProfile)

@@ -42,15 +42,14 @@
         <li class="nav-item ml-3">
           <div class="dropdown">
             <a class="btn" href="#" role="button" id="dropdownMenu2" data-toggle="dropdown" style="padding-bottom:2px; padding-top:2px;">
-            <!-- {% if user.userprofile %}
-              {% if user.userprofile.avatar %}
-                <img class="rounded-circle" src="/media/{{user.userprofile.avatar}}" alt=""
+            {% if user.userprofile %}
+              {% if user.userprofile.avatar_link != "Link is empty" %}
+                <img class="rounded-circle" src="{{user.userprofile.avatar_link}}" alt=""
                 width="33px">
               {% endif %}
             {% else %}
               <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt="" width="33px">
-            {% endif %} -->
-            <img class="rounded-circle" src="https://webriti.com/wp-content/themes/themeshop/images/testimonial/no-image.png" alt="" width="33px">
+            {% endif %}
 
             </a>
             <div class="dropdown-menu dropdown-menu-right">

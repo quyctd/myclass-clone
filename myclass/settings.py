@@ -138,7 +138,7 @@ LANGUAGE_CODE = 'en-us'
 
 ADMIN_LANGUAGE_CODE='vi'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Indian/Christmas'
 
 USE_I18N = True
 

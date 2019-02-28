@@ -29,19 +29,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     url(r'^login/$', 
-        auth_views.login, 
+        auth_views.LoginView, 
         {'template_name': 'registration/login.html'}, 
         name='login'
     ),
     
     url(r'^logout/$', 
-        auth_views.logout, 
+        auth_views.LogoutView, 
         {'next_page': 'home'},
         name='logout'
     ),
     url(r'^search/$', crs_views.search, name="search"),
     url(r'^', include("apps.urls")),
-    # url(r'^course/', include("courses.urls")),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <-- Can't remove?
 ]
 
