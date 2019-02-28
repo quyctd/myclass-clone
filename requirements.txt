@@ -19,4 +19,4 @@ bleach
 whitenoise==3.3.0
 Markdown
 psycopg2-binary
-cloudinary==5.1.2
+cloudinary==5.1
