@@ -1,4 +1,4 @@
-Django==2.1
+Django==2.1.7
 django-ckeditor==5.4.0
 django-jet==1.0.7
 django-taggit==0.22.2
