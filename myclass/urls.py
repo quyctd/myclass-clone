@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
-from courses import views as crs_views
+from apps import views as crs_views
 
 admin.autodiscover()
 
@@ -40,8 +40,8 @@ urlpatterns = [
         name='logout'
     ),
     url(r'^search/$', crs_views.search, name="search"),
-    url(r'^', include("user.urls")),
-    url(r'^course/', include("courses.urls")),
+    url(r'^', include("apps.urls")),
+    # url(r'^course/', include("courses.urls")),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <-- Can't remove?
 ]
 
