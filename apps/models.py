@@ -10,7 +10,7 @@ from .tools import pre_upload_cover_course, pre_upload_avatar_image
 
 class Course(models.Model):
     ten_khoa_hoc = models.CharField(max_length = 255)
-    anh_cover = models.FileField(upload_to = "cover/")
+    anh_cover = models.FileField(upload_to = "cover/", blank = True)
     cover_link = models.CharField(default = "Link is empty", max_length = 1024, blank = True)
     ngay_tao = models.DateTimeField(default = timezone.now)
     mieu_ta = models.TextField()
