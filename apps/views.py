@@ -13,6 +13,7 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.password_validation import validate_password
 from .tools import pre_upload_avatar_image
+from django.db.models import F
 # Create your views here.
 
 def courses_detail(request, pk):
@@ -21,8 +22,7 @@ def courses_detail(request, pk):
     for video in course.video.all():
         time += video.duration
     m, s = divmod(time.seconds, 60)
-    course.views += 1
-    course.save()
+    Course.objects.filter(pk=pk).update(views=F('views') + 1)
     if request.method == 'GET':
         suggest_course = Course.objects.all().exclude(pk = pk)[:5]
         categories = Category.objects.all()[:5]
@@ -45,8 +45,8 @@ def courses_detail_enroll(request, pk):
     for video in course.video.all():
         time += video.duration
     m, s = divmod(time.seconds, 60)
-    course.views += 1
-    course.save()
+    Course.objects.filter(pk=pk).update(views=F('views') + 1)
+
     if request.method == "GET":
         suggest_course = Course.objects.all().exclude(pk=pk)[:5]
         categories = Category.objects.all()[:5]
