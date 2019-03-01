@@ -63,8 +63,7 @@ def courses_detail_enroll(request, pk):
 
 def courses_learn(request, pk):
     course = get_object_or_404(Course, pk=pk)
-    course.views += 1
-    course.save()
+    Course.objects.filter(pk=pk).update(views=F('views') + 1)
     context = {
         "course": course,
         "categories": Category.objects.all(),
