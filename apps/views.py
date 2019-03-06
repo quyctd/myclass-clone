@@ -192,6 +192,7 @@ def setting(request):
                 user.first_name = first_name
             if last_name:
                 user.last_name = last_name
+            UserProfile.objects.filter(user = request.user).update(views=F('views') + 1)
             userprofile.save()
             user.save()
             return redirect('setting')
