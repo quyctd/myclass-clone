@@ -7,15 +7,16 @@ import datetime
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AnonymousUser
 from .forms import *
 from django.contrib import messages
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import update_session_auth_hash, decorators
 from django.contrib.auth.password_validation import validate_password
 from .tools import pre_upload_avatar_image
 from django.db.models import F
 # Create your views here.
 
+@decorators.login_required(login_url = "/login/")
 def courses_detail(request, pk):
     course = get_object_or_404(Course, pk = pk)
     time = datetime.timedelta(seconds = 0)
@@ -36,9 +37,10 @@ def courses_detail(request, pk):
         return render(request, "courses/course_detail.html", context=context)
     elif request.method == "POST":
         user = request.user
-        course.students.add(user)
-        return redirect(courses_detail_enroll, pk=pk)
-
+        if user.is_authenticated:
+            course.students.add(user)
+            return redirect(courses_detail_enroll, pk=pk)
+        
 def courses_detail_enroll(request, pk):
     course = get_object_or_404(Course, pk=pk)
     time = datetime.timedelta(seconds=0)
