@@ -75,9 +75,7 @@ body {
 .hentry {
     margin: 0 0 30px;
 }
-.bright-course-list_lg .courses-wrap:hover, .bright-course-list_lg .courses-wrap {
-    box-shadow: none;
-}
+
 .courses-wrap {
     border-radius: 0;
     box-shadow: 0 2px 7px rgba(0,0,0,.15);
@@ -85,6 +83,8 @@ body {
     transition: all 0.2s ease-in-out;
     background: #fff;
     height: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .thumb{
     position: relative;
@@ -155,3 +155,10 @@ p {
     background-color:#007549;
 }
 /* End Course display  */
+
+@media only screen and (max-width: 600px) {
+    .entry-title {
+        font-size: 25px!important;
+    }
+
+}

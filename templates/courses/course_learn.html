@@ -14,9 +14,9 @@
   <!-- Header -->
   {% include "partial/header.html" %}
   <!-- Image Logo List Course -->
-    <div class="container-fluid mt-3 mb-4">
+    <div class="container-fluid mt-3 mb-3">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-lg-8 col-sm-12 col-md-12">
                 <div class="w-100 bg-success py-2 px-3 mb-2">
                     <h5 class="text-light">{{course.ten_khoa_hoc}}</h5>
                 </div>
@@ -39,15 +39,19 @@
                     </div>
                     
                 </div>
-                <a class="btn btn-success" href="#carouselExampleIndicators" role="button" data-slide="prev">Previous</a>
-<a class="btn btn-success" href="#carouselExampleIndicators" role="button" data-slide="next">Next</a>
+
+                <div class="action-btn mb-3">
+                        <a class="btn btn-success" href="#carouselExampleIndicators" role="button" data-slide="prev">Previous</a>
+                        <a class="btn btn-success" href="#carouselExampleIndicators" role="button" data-slide="next">Next</a>
+                </div>
+                
                 
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-sm-12 col-md-12">
                 <div class="w-100 bg-success py-2 px-3 mb-2">
                     <h5 class="text-light"><i class="fas fa-align-left mr-2"></i>Đề cương</h5>
                 </div>
-                <div class='p-2' style="height: 500px; overflow: scroll;">
+                <div class='p-2 course-menu'>
                     {% for video in course.video.all %}
                         <div class="border p-3 w-100">
                             <a data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="w-100" href="">Bài {{forloop.counter}}: {{video.video_name}}</a>

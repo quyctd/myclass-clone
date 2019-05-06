@@ -124,11 +124,10 @@ footer{
   margin-top: 5%;
 }
 
-.col-sm-2-change {
+.card-shadow {
   box-shadow: 0 2px 15px -1px rgba(0,0,0,.1);
   padding-left: 0px;
   padding-right: 0px;
-  margin-right: 10px;
 }
 
 .card-change {
@@ -157,6 +156,19 @@ footer{
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset,
   0px 0px 8px rgba(40, 167, 69, 0.5);
   outline: 0 none;
+}
+
+.course-menu {
+  height: 500px; 
+  overflow: scroll;
+}
+
+.user-avatar {
+  text-align: center;
+}
+
+.setting-form {
+  margin: 0 100px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -206,6 +218,28 @@ footer{
   ul.address {
     display: none;
   }
+
+  .top-course {
+    padding-left: 1rem!important;
+    padding-right: 1rem!important;
+  }
+
+  iframe {
+    height: 30vh;
+  }
+
+  .course-menu {
+    height: 100%;
+  }
+
+  .user-avatar>img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .setting-form {
+    margin: 0;
+  }
 } 
 
 @media only screen and (max-width: 768px) {
@@ -235,5 +269,27 @@ footer{
 
   ul.address {
     display: none;
+  }
+
+  .card-4 {
+    display: none;
+  }
+  
+  iframe {
+    height: 40vh;
+  }
+
+  .course-menu {
+    height: 100%;
+  }
+
+  
+  .user-avatar>img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .setting-form {
+    margin: 0;
   }
 }

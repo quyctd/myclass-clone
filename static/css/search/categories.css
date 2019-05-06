@@ -36,3 +36,9 @@
     color: #000;
     text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+    #categories-2 {
+        display: none;
+    }
+}

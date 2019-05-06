@@ -41,4 +41,4 @@ virtualenv==15.1.0
 virtualenvwrapper-win==1.2.5
 webencodings==0.5.1
 whitenoise==3.3.0
-youtube-dl==2019.2.18
+youtube-dl==2019.4.30

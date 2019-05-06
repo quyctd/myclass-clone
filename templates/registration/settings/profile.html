@@ -1,7 +1,7 @@
 <h3 class="text-center">Thông tin cá nhân</h3>
 <p class="text-center">Thêm thông tin về bản thân bạn và chia sẻ trên hồ sơ của bạn.</p>
 <hr>
-<form method='POST' style="margin: 0 100px;" enctype="multipart/form-data">
+<form class="setting-form" method='POST' style="" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         <input name='first_name' type="text" class="form-control" placeholder="First Name" value="{{user.first_name}}">

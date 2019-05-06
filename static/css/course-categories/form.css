@@ -57,3 +57,10 @@ input[type="submit"] {
     border-radius: 0;
     position: relative;
 }
+
+@media only screen and (max-width: 600px) {
+    .searchandfilter li.btn-sort{
+        display: block;
+        margin-top: 15px;
+    }
+}

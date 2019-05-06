@@ -92,3 +92,14 @@ section:first-child .widget-title {
     font-size: 12px;
     line-height: 12px;
 }
+
+@media only screen and (max-width: 600px) {
+    .stats-course-recent {
+        display: none;
+    }
+
+    .stats-course-cate {
+        display: none;
+
+    }
+}

@@ -23,9 +23,9 @@
         </div>
         {% endif %}
         <div class="row">
-            <div class="col-3">
-                <ul class="list-group list-unstyled" id="list-tab" role="tablist">
-                    <li>
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <ul class="list-group list-unstyled mb-4" id="list-tab" role="tablist">
+                    <li class="user-avatar">
                         {% if user.userprofile %}
                             {% if user.userprofile.avatar_link != "Link is empty" %}
                                 <img class="rounded-circle" src="{{user.userprofile.avatar_link}}" alt="" width="250px" height="250px">
@@ -48,7 +48,7 @@
                     </li> -->
                 </ul>
             </div>
-            <div class="col-9">
+            <div class="col-lg-9 col-md-12 col-sm-12">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="list-profile" role="tabpanel">
                         {% include "registration/settings/profile.html" %}
