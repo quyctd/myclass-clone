@@ -1,10 +1,10 @@
 <div class="top_courses container-fluid">
   <h2 class="text-center">Top khóa học về "{{page_title}}"</h2>
   <div class="row mt-3">
-    <div class="col-sm-1">
+    <div class="col-lg-1">
     </div>
     {% for course in category.khoa_hoc.all|slice:'5' %}
-    <div class="col-sm-2 col-sm-2-change">
+    <div class="col-lg-2 col-md-4 col-sm-12 col-md-2-change">
       <div class="card card-change">
         <img class="card-img-top" src="{{course.cover_link}}" alt="{{course.ten_khoa_hoc}}" height="122px" style="object-fit:cover;">
         <div class="card-body card-body-override">
@@ -21,7 +21,7 @@
       </div>
     </div>
     {% endfor %}
-    <div class="col-sm-1">
+    <div class="col-lg-1">
     </div>
   </div>
 </div>

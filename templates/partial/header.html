@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow" style="padding: 10px 50px">
   <a class="navbar-brand" href="/">UCourses</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -18,7 +18,7 @@
         </div>
       </li>
     </ul>
-    <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0 mr-auto" method="GET">
+    <form action="{% url 'search' %}" class="navbar-search form-inline my-2 my-lg-0 mr-auto" method="GET">
      
         <div class="form-group ml-sm-3" style="width:50vh">
           <input style="width: 100%" type="text" class="form-control rounded-0" name='q' placeholder="Tìm kiếm khóa học">
@@ -62,10 +62,10 @@
       {% else %}
         
       
-        <li class="nav-item">
-          <a class="nav-link" href="/login/">Đăng nhập</a>
+        <li class="nav-item ml-3">
+          <a class="nav-link btn btn-outline-success px-3" href="/login/">Đăng nhập</a>
         </li>
-        <li><a class="nav-link sign-up" href="/signup/">Đăng ký</a></li>
+        <li class="nav-item ml-3"><a class="nav-link btn btn-success text-white px-3" href="/signup/">Đăng ký</a></li>
       {% endif %}
     </ul>
   </div>

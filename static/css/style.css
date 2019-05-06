@@ -11,6 +11,9 @@
   background-color: #007549;
 }
 
+.btn-outline-success:hover {
+  color: white!important;
+}
 /* FOOTER CSS */
 .search-text{
 	margin-top:50px;
@@ -154,4 +157,83 @@ footer{
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset,
   0px 0px 8px rgba(40, 167, 69, 0.5);
   outline: 0 none;
+}
+
+@media only screen and (max-width: 600px) {
+  section.stats {
+    display: none;
+  }
+  
+  .bg-shadow {
+    height: 40vh;
+  }
+
+  .quote h1 {
+    font-size: 1.25rem;
+    margin-left: 1rem!important;
+  }
+
+  div.input-group {
+    margin-left: 1rem!important;
+
+  }
+
+  input.quote-input {
+    font-size: 1rem!important;
+    
+  }
+  
+  .input-group>.form-control {
+    flex: 0.8 1 auto;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  form.navbar-search {
+    display: none;
+  }
+
+  li.nav-item {
+    margin-top: 1rem;
+  }
+
+  li.nav-item {
+    text-align: center;
+  }
+
+  ul.address {
+    display: none;
+  }
+} 
+
+@media only screen and (max-width: 768px) {
+  section.stats {
+    display: none;
+  }
+  
+  .bg-shadow {
+    height: 40vh;
+  }
+
+  form.navbar-search {
+    display: none;
+  }
+
+  li.nav-item {
+    margin-top: 1rem;
+  }
+
+  li.nav-item {
+    text-align: center;
+  }
+
+  .input-group>.form-control {
+    flex: 0.8 1 auto;
+  }
+
+  ul.address {
+    display: none;
+  }
 }
