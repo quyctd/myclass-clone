@@ -52,7 +52,7 @@
                     <h5 class="text-light"><i class="fas fa-align-left mr-2"></i>Đề cương</h5>
                 </div>
                 <div class='p-2 course-menu'>
-                    {% for video in course.video.all %}
+                    {% for video in course.video.all reversed %}
                         <div class="border p-3 w-100">
                             <a data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="w-100" href="">Bài {{forloop.counter}}: {{video.video_name}}</a>
                         </div>

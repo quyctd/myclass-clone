@@ -58,7 +58,7 @@
             <div>
                 <hr style="border:1px solid #28a745; margin:0px">
                 <ul class="curriculum-sections">
-                    {% for video in course.video.all %}
+                    {% for video in course.video.all reversed %}
                     <li class="p-4 curriculum-border">
                         <i class="fab fa-youtube text-danger"></i>
                         <span class="course-info-label">{{forloop.counter}}. {{video.video_name}}</span>
