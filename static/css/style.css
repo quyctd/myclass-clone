@@ -171,6 +171,10 @@ footer{
   margin: 0 100px;
 }
 
+.rounded-circle {
+  object-fit: cover;
+}
+
 @media only screen and (max-width: 600px) {
   section.stats {
     display: none;

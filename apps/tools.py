@@ -1,6 +1,8 @@
 #upload image to cloudinary
 import cloudinary
 from cloudinary import uploader
+from PIL import Image
+import io
 
 #cloudinary config
 cloudinary.config(
@@ -25,6 +27,7 @@ def pre_upload_avatar_image(sender, instance, *args, **kwargs):
         try:
                 avatar = instance.avatar.open()
                 cloud_avatar = uploader.upload(avatar)
+                print("Upload image success")
                 cloud_link = cloud_avatar['url']
                 instance.avatar_link = cloud_link
         except:
