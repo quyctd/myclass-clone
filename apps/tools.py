@@ -11,10 +11,13 @@ cloudinary.config(
 
 def pre_upload_cover_course(sender, instance, *args, **kwargs):
     if instance.anh_cover:
-        cover_photo = instance.anh_cover.open()
-        cloud_img = uploader.upload(cover_photo)
-        cloud_link = cloud_img['url']
-        instance.cover_link = cloud_link
+        try:
+                cover_photo = instance.anh_cover.open()
+                cloud_img = uploader.upload(cover_photo)
+                cloud_link = cloud_img['url']
+                instance.cover_link = cloud_link
+        except:
+                return
 
 def pre_upload_avatar_image(sender, instance, *args, **kwargs):
     if instance.avatar:
