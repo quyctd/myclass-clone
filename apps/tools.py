@@ -17,11 +17,16 @@ def pre_upload_cover_course(sender, instance, *args, **kwargs):
                 cloud_link = cloud_img['url']
                 instance.cover_link = cloud_link
         except:
+                print("Course cover file not found!")
                 return
 
 def pre_upload_avatar_image(sender, instance, *args, **kwargs):
     if instance.avatar:
-        avatar = instance.avatar.open()
-        cloud_avatar = uploader.upload(avatar)
-        cloud_link = cloud_avatar['url']
-        instance.avatar_link = cloud_link
+        try:
+                avatar = instance.avatar.open()
+                cloud_avatar = uploader.upload(avatar)
+                cloud_link = cloud_avatar['url']
+                instance.avatar_link = cloud_link
+        except:
+                print("Avatar file not found!")
+                return
