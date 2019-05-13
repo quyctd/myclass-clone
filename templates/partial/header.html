@@ -29,11 +29,7 @@
     <ul class="navbar-nav">
       {% if user.is_authenticated %}
         
-        {% if user.is_superuser %}
-          <li class="nav-item mx-3">
-            <a class="nav-link" href="/admin/">Quản lý trang web</a>
-          </li>
-        {% endif %}
+        
 
         <li class="nav-item mx-3">
           <a class="nav-link" href="/mycourses/">Khóa Học Của Tôi</a>
@@ -54,6 +50,9 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="/settings/" class="dropdown-item">Cài đặt</a>
+              {% if user.is_superuser %}
+                <a class="dropdown-item" href="/admin/">Quản lý trang web</a>
+              {% endif %}
               <a class="dropdown-item text-muted" href="/logout/">Đăng xuất</a>
             </div>
           </div>
