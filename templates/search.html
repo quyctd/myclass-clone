@@ -38,14 +38,14 @@
     <!-- Search display -->
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-lg-8 col-md-12 col-sm-12">
                 {% if courses|length == 0 %}
                     {% include "search/not-found.html" %}
                 {% else %}
                     {% include "search/found.html" %}
                 {% endif %}
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-12 col-sm-12">
                 {% include "search/categories.html" %}
                 {% include "search/tags.html" %}
             </div>

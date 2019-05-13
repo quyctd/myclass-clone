@@ -175,6 +175,10 @@ footer{
   object-fit: cover;
 }
 
+.form-search {
+  width:50vh;
+}
+
 @media only screen and (max-width: 600px) {
   section.stats {
     display: none;
@@ -295,5 +299,16 @@ footer{
 
   .setting-form {
     margin: 0;
+  }
+}
+
+/* For Ipad Pro only */
+@media only screen 
+and (min-width: 1024px) 
+and (max-height: 1366px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 2) {
+  .form-search {
+    width: 20vh;
   }
 }

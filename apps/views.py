@@ -4,16 +4,17 @@ from django.views.generic import DetailView
 from django.db.models import Q, Count
 from taggit.models import Tag
 import datetime
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, update_session_auth_hash, decorators
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import User, AnonymousUser
 from .forms import *
 from django.contrib import messages
-from django.contrib.auth import update_session_auth_hash, decorators
 from django.contrib.auth.password_validation import validate_password
 from .tools import pre_upload_avatar_image
 from django.db.models import F
+from django.http import HttpResponseRedirect
+
 # Create your views here.
 
 @decorators.login_required(login_url = "/login/")
@@ -154,6 +155,9 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            next_url = request.GET.get('next', '')
+            if next_url != "":
+                return HttpResponseRedirect(next_url)
             return redirect('home')
     else:
         form = SignUpForm()
