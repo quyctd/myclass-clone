@@ -5,8 +5,8 @@
             <div class="card card-change card-shadow">
                 <img class="card-img-top" src="{{course.cover_link}}" alt="{{course.ten_khoa_hoc}}" height="122px" style="object-fit:cover;">
                 <div class="card-body card-body-override">
-                    <p class="title_course" style="margin:0; height:auto; min-height:auto;">
-                        {{ course.ten_khoa_hoc|truncatewords:6 }}
+                    <p class="title_course" style="margin:0;">
+                        {{ course.ten_khoa_hoc|truncatewords:5 }}
                     </p>
                     <p class="text-secondary">
                         <i class="fas fa-users"></i> {{course.students.count}} học sinh

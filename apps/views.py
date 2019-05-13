@@ -163,7 +163,7 @@ def setting(request):
     user = request.user
     if request.method == "GET":
         form = PasswordChangeCustomForm(request.user)
-        return render(request, "registration/setting.html", {'form':form})
+        return render(request, "registration/setting.html", {'form':form, "categories": Category.objects.all()})
     elif request.method == "POST":
         if request.POST.get('where') == 'profile':
             first_name = request.POST.get('first_name', None)
@@ -203,7 +203,7 @@ def setting(request):
                 update_session_auth_hash(request, user)  # Important!
                 messages.success(
                     request, 'Your password was successfully updated!')
-                return render(request, 'registration/setting.html', {'form': form, 'success': True})
+                return render(request, 'registration/setting.html', {'form': form, 'success': True, "categories": Category.objects.all()})
 
     context = {
         'form':form,

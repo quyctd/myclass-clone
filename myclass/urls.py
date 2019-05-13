@@ -36,7 +36,7 @@ urlpatterns = [
     
     url(r'^logout/$', 
         auth_views.LogoutView.as_view(), 
-        {'next_page': '/login/'},
+        {'next_page': '/'},
         name = "logout"
     ),
     url(r'^search/$', crs_views.search, name="search"),
