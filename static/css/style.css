@@ -311,4 +311,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
   .form-search {
     width: 20vh;
   }
+
+  .bg-shadow {
+    height: 40vh;
+  }
 }
