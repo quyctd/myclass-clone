@@ -25,8 +25,8 @@ def courses_detail(request, pk):
     m, s = divmod(time.seconds, 60)
     Course.objects.filter(pk=pk).update(views=F('views') + 1)
     if request.method == 'GET':
-        suggest_course = Course.objects.all().exclude(pk = pk)[:5]
-        categories = Category.objects.all()[:5]
+        suggest_course = Course.objects.all().exclude(pk = pk)[:4]
+        categories = Category.objects.all()[:4]
         context = {
             "course" : course,
             "suggest_course" : suggest_course,
@@ -50,8 +50,8 @@ def courses_detail_enroll(request, pk):
     Course.objects.filter(pk=pk).update(views=F('views') + 1)
 
     if request.method == "GET":
-        suggest_course = Course.objects.all().exclude(pk=pk)[:5]
-        categories = Category.objects.all()[:5]
+        suggest_course = Course.objects.all().exclude(pk=pk)[:4]
+        categories = Category.objects.all()[:4]
         context = {
             "course": course,
             "suggest_course": suggest_course,
@@ -83,7 +83,7 @@ def courses_list(request):
 
 def categories(request, pk):
     all_cate = Category.objects.all()
-    new_courses = Course.objects.all().order_by("-ngay_tao")[:5]
+    new_courses = Course.objects.all().order_by("-ngay_tao")[:4]
 
     if request.method == 'GET':
         cate = get_object_or_404(Category, pk = pk)
