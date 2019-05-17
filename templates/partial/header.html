@@ -50,7 +50,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="/settings/" class="dropdown-item">Cài đặt</a>
-              {% if user.is_superuser %}
+              {% if user.is_staff %}
                 <a class="dropdown-item" href="/admin/">Quản lý trang web</a>
               {% endif %}
               <a class="dropdown-item text-muted" href="/logout/">Đăng xuất</a>
