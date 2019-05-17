@@ -20,12 +20,10 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from apps import views as crs_views
-from jet_django.urls import jet_urls
 
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^jet_api/', include(jet_urls)),
 
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS

@@ -40,7 +40,6 @@ ALLOWED_HOSTS = ["127.0.0.1", "hustclass.herokuapp.com", "ucoursevn.herokuapp.co
 INSTALLED_APPS = [
     'jet.dashboard',
     'jet',
-    'jet_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
