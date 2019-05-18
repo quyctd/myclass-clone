@@ -107,7 +107,7 @@ def categories(request, pk):
             courses = cate.khoa_hoc.all().order_by('-ngay_tao')
         elif sort== '2':
             courses = cate.khoa_hoc.all().annotate(
-                num_students=Count('students')).order_by('num_students')
+                num_students=Count('students')).order_by('-num_students')
         context = {
             "categories": all_cate,
             "category": cate,

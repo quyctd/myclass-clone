@@ -22,7 +22,7 @@
                 </div>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner">
-                        {% for video in course.video.all reversed %}
+                        {% for video in course.video.all %}
                             {% if forloop.counter == 1%}
                                 <div class="carousel-item active">
                                     <iframe width="100%" height="470px" src="https://www.youtube.com/embed/{{video.video_id}}" frameborder="0" allow="autoplay; encrypted-media"
@@ -52,7 +52,7 @@
                     <h5 class="text-light"><i class="fas fa-align-left mr-2"></i>Đề cương</h5>
                 </div>
                 <div class='p-2 course-menu'>
-                    {% for video in course.video.all reversed %}
+                    {% for video in course.video.all %}
                         <div class="border p-3 w-100">
                             <a data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="w-100" href="">Bài {{forloop.counter}}: {{video.video_name}}</a>
                         </div>
