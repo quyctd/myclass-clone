@@ -4,7 +4,7 @@ chardet==3.0.4
 cloudinary==1.15.0
 defusedxml==0.5.0
 dj-database-url==0.5.0
-Django==2.1.7
+Django==2.2.13
 django-ckeditor==5.6.1
 django-jet==1.0.8
 django-js-asset==1.2.2
